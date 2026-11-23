@@ -10,3 +10,12 @@ P2 已通过。S0/S1/S2、有效漏收、同种子裁剪等价性和 16/64/160/4
 P3 的 E0 密度校准入口是 experiment.ps1 -Action calibrate -Config configs/core.json。通过 MCP 按已登记顺序提交，进度在 results/calibration/。正式样本仍为 0。
 
 P3 E0 正在执行。密度 5、预热 20 s 的两个 120 s run 已验收，种子 100 和 101 分别满足低档与稳定性判据。五窗口目标等权 CBR 各为 8.16%–8.23% 和 8.30%–8.43%。首条请求因 Windows 长临时路径未进入引擎，原证据已保留，修复仅缩短请求名，同科学配置重试成功。后续候选和当前任务以 results/calibration/core_v1/index.json 为准，冻结与正式启动须待 P3 其余门槛通过。
+
+## 2026-11-24 02:55 状态
+
+- 控制环修复完成（估计量 settle 1 s 门控）：启动饱和消除，预热期只测不控；独立校验器同步复刻，C++ 772 checks / Python 7 passed。
+- 目标负载重标定：CBR 由车队自身信标产生（~0.04/Hz），`cbr_target=0.18` 时 d=33 稳定在 b≈3.4 Hz、CBR≈0.16；d=5 顶格 10 Hz。
+- 两档校准成立：`results/calibration/core_v32/decision.json` → `selected {low: 5, high: 33}`（首次非 grid_exhausted）。
+- S1 三种子结论：G2/G3 把规范定义的 D_info 从 161.8 ms 降到 100.4 ms（−38%），发送量变化 <0.02%；G3≡G2（H2 不成立）；全部在 0.8 s 期限内送达。
+- 结构性限制：all_vehicles_same_scheme 下“可区分”与“有拥塞”互斥，见 `docs/E0_v3_两档设计_20261123.md` 第 11 节；v4 方向为背景定速 + 目标受控。
+- 交付：GitHub `EIE575-Project` 已同步（commit a0bda08），含源码、配置、四张图与结果说明。
