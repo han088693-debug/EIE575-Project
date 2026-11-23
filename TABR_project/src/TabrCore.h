@@ -111,11 +111,14 @@ inline double updateBase(double base, double cbar, double target, double deadban
     return std::abs(error) <= deadband + 1e-12 ? base : clip(base + eta * error, minimum, maximum);
 }
 
-// 控制律只允许在“估计量已有效且已过预热”后积分；否则预热期的 CBR 估计
-// 接近 0，会被当成真实欠载而把 base 推到上限（启动饱和）。
-inline bool controlActive(double now, double warmup, bool estimateValid)
+// 控制律只允许在估计量可用后积分。仿真开始时窗口内还没有流量，CBR 估计接近 0，
+// 若立即积分会被当成真实欠载而把 base 推到上限（启动饱和）。
+// 估计量的有效时间取一个控制窗口量级；场景预热只用于测量，不用于控制门控。
+constexpr double kEstimateSettleSeconds = 1.0;
+
+inline bool controlActive(double now, double settleSeconds, bool estimateValid)
 {
-    return estimateValid && now + 1e-12 >= warmup;
+    return estimateValid && now + 1e-12 >= settleSeconds;
 }
 
 inline double sendInterval(double rate, double jitter, double minimumRate, double maximumRate)

@@ -290,7 +290,7 @@ class BusyAudit:
         return delta
 
 
-def audit_controller(row, scheme, ctl, filtered, previous_base, warmup):
+def audit_controller(row, scheme, ctl, filtered, previous_base, settle_s):
     """Check the implementation's registered feedback/weight equations, per update."""
     def clip(x, lo, hi):
         return min(hi, max(lo, x))
@@ -315,8 +315,8 @@ def audit_controller(row, scheme, ctl, filtered, previous_base, warmup):
     # Match updateBase's roundoff allowance at the exact deadband edge.
     feedback_error = ctl["cbr_target"]-filtered
     b = previous_base
-    # Mirror the controller's warmup gate: no integration before the estimate is usable.
-    if number(row["tick_time"]) + 1e-12 >= warmup and abs(feedback_error) > ctl["deadband"]+1e-12:
+    # Mirror the controller's settle gate: no integration before the estimate is usable.
+    if number(row["tick_time"]) + 1e-12 >= settle_s and abs(feedback_error) > ctl["deadband"]+1e-12:
         b = clip(b+ctl["feedback_gain"]*feedback_error, ctl["b_min_hz"], ctl["b_max_hz"])
     expected = {"S":(score,expected_score), "U":(urgency,(w-1)/beta if beta else 0),
                 "b":(base,b), "W":(weight,w), "r":(rate,clip(b*w,ctl["r_min_hz"],ctl["r_max_hz"]))}
@@ -325,6 +325,8 @@ def audit_controller(row, scheme, ctl, filtered, previous_base, warmup):
             raise ValueError(f"controller {field} fails independent calculation: {actual} vs {wanted}")
     return b
 
+
+ESTIMATE_SETTLE_S = 1.0
 
 def aggregate_controls(logs, clock, cfg, life, tracked, window, step, smoothing):
     a, b = window
@@ -371,7 +373,7 @@ def aggregate_controls(logs, clock, cfg, life, tracked, window, step, smoothing)
                 if real:
                     previous_b[v] = audit_controller(row, cfg["scheme"], c, filtered,
                                                      previous_b.get(v, c["b_initial_hz"]),
-                                                     cfg["timing"]["warmup_s"])
+                                                     ESTIMATE_SETTLE_S)
                     formula_count += 1
                 audit.advance(t)
                 if life[v][4]:

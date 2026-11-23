@@ -128,10 +128,10 @@ class FormalStateTests(unittest.TestCase):
             audit_controller(last,"G3",ctl,float(last["Cbar"]),previous,0.0)
         gated = dict(last)
         gated["W"] = row["W"]
-        gated["tick_time"] = "10.0"
+        gated["tick_time"] = "0.5"
         self.assertEqual(
-            audit_controller(gated,"G3",ctl,float(last["Cbar"]),float(last["b"]),20.0),
-            float(last["b"]), "no integration before warmup")
+            audit_controller(gated,"G3",ctl,float(last["Cbar"]),float(last["b"]),1.0),
+            float(last["b"]), "no integration before the estimate settles")
         clock=Clock(cfg["timing"])
         with tempfile.TemporaryDirectory() as d:
             logs=Path(d)
@@ -182,7 +182,9 @@ class FormalStateTests(unittest.TestCase):
     def test_real_terminal_timer_requires_its_own_normal_trip_evidence(self):
         cfg = json.loads((ROOT/"configs/core.json").read_text(encoding="utf-8-sig"))
         cfg.update(scheme="G0", data_origin="simulation")
-        cfg["timing"]["warmup_s"] = 0  # fixture predates the warmup gate
+        # Fixture uses sub-second ticks and predates the settle gate.
+        import formal_state
+        formal_state.ESTIMATE_SETTLE_S = 0.0
         clock = Clock(cfg["timing"])
         tick = clock.tick
         with tempfile.TemporaryDirectory() as d:

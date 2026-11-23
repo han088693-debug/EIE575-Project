@@ -183,18 +183,20 @@ void sendTiming()
 
 void warmupGate()
 {
-    expect(!tabr::controlActive(0.1, 20.0, true), "gate closed before warmup");
-    expect(tabr::controlActive(20.0, 20.0, true), "gate opens at warmup");
-    expect(tabr::controlActive(59.9, 20.0, true), "gate open after warmup");
-    expect(!tabr::controlActive(59.9, 20.0, false), "gate closed without valid estimate");
+    expect(!tabr::controlActive(0.1, tabr::kEstimateSettleSeconds, true), "gate closed before estimate settles");
+    expect(!tabr::controlActive(0.9, tabr::kEstimateSettleSeconds, true), "gate still closed at 0.9 s");
+    expect(tabr::controlActive(1.0, tabr::kEstimateSettleSeconds, true), "gate opens once estimate is usable");
+    expect(tabr::controlActive(59.9, tabr::kEstimateSettleSeconds, true), "gate open afterwards");
+    expect(!tabr::controlActive(59.9, tabr::kEstimateSettleSeconds, false), "gate closed without valid estimate");
 
     double base = 2;
-    for (double t = 0.1; t < 20.0; t += 0.1) {
-        if (tabr::controlActive(t, 20.0, true))
+    for (int i = 1; i < 10; ++i) {
+        const double t = i * 0.1;
+        if (tabr::controlActive(t, tabr::kEstimateSettleSeconds, true))
             base = tabr::updateBase(base, 0.0, 0.43, 0.03, 0.5, 1.0 / 3, 10);
     }
-    near(base, 2, "base held through warmup despite zero CBR");
-    if (tabr::controlActive(20.1, 20.0, true))
+    near(base, 2, "base held before the estimate settles despite zero CBR");
+    if (tabr::controlActive(1.1, tabr::kEstimateSettleSeconds, true))
         base = tabr::updateBase(base, 0.408, 0.43, 0.03, 0.5, 1.0 / 3, 10);
     near(base, 2, "base held when measured CBR sits inside the deadband");
 }
