@@ -1,0 +1,30 @@
+{
+  "date": "2026-11-22",
+  "unit_tests_passed": 45,
+  "mcp_smoke_passed": true,
+  "input_hash_count": 25,
+  "source_still_matches_input_snapshot": true,
+  "actual_log_progress": {
+    "event_number": 9422,
+    "simulation_time_s": 30.0,
+    "simulation_limit_s": 30.0,
+    "percent": 100.0
+  },
+  "installation_script_ps51": "passed in separate temporary directory; installed MCP environment and host ready",
+  "installation_validation_host_stopped": true,
+  "active_simulation_tasks": [],
+  "development_host": {
+    "identity": {
+      "pid": 31180,
+      "create_time": 1795329093.6055377
+    },
+    "started_at": "2026-11-22T06:31:33.802009+00:00",
+    "server_directory": "E:\\Temp\\eie575-simulation-mcp",
+    "heartbeat_epoch": 1795329505.6520224,
+    "ready": true,
+    "alive": true,
+    "heartbeat_age_s": 0.712
+  },
+  "persistent_project_registration": "not performed: protected configuration and actual directory write denial",
+  "scope": "S1 functional test only"
+}

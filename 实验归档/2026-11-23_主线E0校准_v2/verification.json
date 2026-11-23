@@ -1,0 +1,103 @@
+{
+  "complete": true,
+  "status": "grid_exhausted",
+  "data_origin": "simulation",
+  "source_index_sha256": "cac21562a86ff6c111f322710e46dd50cb2cfc14869dce5086b801be98e91df5",
+  "source_decision_sha256": "1028691a22ff44abb013a1a2af2013adf5e740a637316d897c40490331c84e63",
+  "accepted_unique_runs": 12,
+  "source_design_sha256": "e2831feec971c1c09053b2cf7ece864544803afa9dd0c3edb49ffe7fcfde14ae",
+  "campaign": "core_v1_budget2",
+  "budget": {
+    "budget_revision": 2,
+    "approval_sha256": "bac8b859d2b650b7c54af7fdda1f5bf107e5ed200de15d209640b80ac76c7e91",
+    "parent_snapshot_sha256": "e11f2673af1005c75a267841338ec0f6287abef8d8b14196bb39e98525e9f550",
+    "inherited_accepted": 10,
+    "new_request_ids": [
+      "e3e46441f32b6caa03",
+      "e5e0f603c259082a01"
+    ],
+    "wall_timeout_s": 5400,
+    "max_parallel": 2
+  },
+  "selected": {
+    "low": 5,
+    "high": null
+  },
+  "next_runs": null,
+  "geometry_exclusions": [
+    {
+      "density": 1,
+      "seed": 100,
+      "roster_sha256": "efbff2fb23d9bf41085af9e1d9bdcf978fb83343ad00c499c52448706b63c997",
+      "spacing_m": 1000.0,
+      "complete_adjacent_pairs_scanned": 28,
+      "excluded_distance": 20,
+      "excluded_outside_window": 8
+    },
+    {
+      "density": 1,
+      "seed": 101,
+      "roster_sha256": "68b5782a9e313b54f131d6b16659a1db86936bf1e861c93b0c4e7181ca39582f",
+      "spacing_m": 1000.0,
+      "complete_adjacent_pairs_scanned": 28,
+      "excluded_distance": 20,
+      "excluded_outside_window": 8
+    },
+    {
+      "density": 2,
+      "seed": 100,
+      "roster_sha256": "41ab44217d003d4cf0151e75fb4ca6f74949fc95dff7c401b32fc3cfe53b4ead",
+      "spacing_m": 500.0,
+      "complete_adjacent_pairs_scanned": 60,
+      "excluded_distance": 40,
+      "excluded_outside_window": 20
+    },
+    {
+      "density": 2,
+      "seed": 101,
+      "roster_sha256": "e6c857d51eef0787d52d443244afc62b54513c69826e73718c67a8fa2661a01d",
+      "spacing_m": 500.0,
+      "complete_adjacent_pairs_scanned": 60,
+      "excluded_distance": 40,
+      "excluded_outside_window": 20
+    }
+  ],
+  "target_windows": 120,
+  "spatial_windows": 240,
+  "verified_run_reports": [
+    "e7a8c52566094b3a02",
+    "e3f0e051b246cf3a01",
+    "ead6d49c8e28b45a01",
+    "e3b541fee10a2d5a01",
+    "e163618ba08e215a01",
+    "e8798344aad4f2ca01",
+    "e19d11715a71a02a02",
+    "edab3187cfb4cf9a01",
+    "e3e46441f32b6caa03",
+    "e5e0f603c259082a01",
+    "ee7174f607201f7a02",
+    "e38b6d834b3532da02"
+  ],
+  "proof_sha256": {
+    "e7a8c52566094b3a02": "d3ee4282ddf166ed74fac23ecbd55ebcc8674f8fc43ab3e79212643bf2af3769",
+    "e3f0e051b246cf3a01": "bdb7ebcb70c52f2fa4a02dd25abf7c8cb08de1cbae8ceed2b82b7ce55acbd750",
+    "ead6d49c8e28b45a01": "773f29d4d42f044b0268bdaea4fbd26cc19207bcc512aba9ca6698727d9e27f5",
+    "e3b541fee10a2d5a01": "c9115496d6fcfb69a3c26c4dc1b80c65d33c318d987171eb524f187d08d86a9d",
+    "e163618ba08e215a01": "e57e485116cb74cd0be6e8a09213317ff2e4806d171b060884b220a6c42ff24f",
+    "e8798344aad4f2ca01": "187cf5ed663ffb77cb4597fbee44ef9eb0d95d9f0ceafe48b811635dd33a22fa",
+    "e19d11715a71a02a02": "051938d4b9bdf7736df2ce46d93fa9a8ac9f33855f61959bb5c2177a6f9cc392",
+    "edab3187cfb4cf9a01": "cd2a16e81d4259d21f58be655375c0831bfb1143cfe39a6e323a4e79708ac7a5",
+    "e3e46441f32b6caa03": "0a7a08e2c933616f63008a38c8d3c92a89a7de7b7d4fc35d01ef0bc80a0bd240",
+    "e5e0f603c259082a01": "682283c9ad77c6c31327870f6cc271ee7611013b8e3ca4b4d0365662dde6bb99",
+    "ee7174f607201f7a02": "9b44ef90d3ef4a5f83d2563d72b702e4dd84fb93f2a3d69e4d80e94564e70c14",
+    "e38b6d834b3532da02": "1373f2ed5c58ee6d1e09234ad49745ede7392ac8e1bdb712ec30441d9e7cf78a"
+  },
+  "output_sha256": {
+    "candidate_decisions.csv": "97f5fd8e8fcf44eef2b9a320157082f923a275b4055be1c79f9056bbf6fa31ab",
+    "target_windows.csv": "10112c3ab0f23cde3685878262f90ce2a293481ee3a379b17a30f7b3313c17ae",
+    "spatial_windows.csv": "f65138020fdfbb16b2721c53e8458030ff81ade392e1432dbae53793e25c73d5",
+    "traffic.csv": "59bc1a50bb3e9e818d108444e1647deae0ef77e3d2268ba1108754fecd1aea10",
+    "E0_校准结论.md": "fd4cbe9d9d56a38f366216cf218ddbd02e4152cf834f8b63121e73808496205b",
+    "density_cbr.png": "127ad729be5cd2f5746470b455ab936ca87e04014e14de899ca91f8e232a038e"
+  }
+}

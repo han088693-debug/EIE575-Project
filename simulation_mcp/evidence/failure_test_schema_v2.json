@@ -1,0 +1,369 @@
+{
+  "started_at": "2026-11-22T06:31:57.206338+00:00",
+  "passed": false,
+  "tool_names": [
+    "get_results",
+    "get_status",
+    "start_run",
+    "stop_run",
+    "tail_log"
+  ],
+  "structured_output_schemas": true,
+  "environment": {
+    "ready": true,
+    "missing": [],
+    "platform": "nt",
+    "settings": {
+      "source_project": "E:\\EIE575_Tools\\workspace\\EIE575_TABR_Starter",
+      "tools_root": "E:\\EIE575_Tools",
+      "state_root": "E:\\Temp\\eie575-sim-runtime",
+      "max_run_wall_s": 1800
+    },
+    "scope": "S1 two-vehicle 30-second functional test; not S0/S2 formal experiments"
+  },
+  "invalid_scheme": "Error executing tool start_run: 1 validation error for start_runArguments\nschemes.0\n  Input should be 'G0', 'G1', 'G2' or 'G3' [type=literal_error, input_value='G9', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/literal_error",
+  "boolean_seed": "Error executing tool start_run: 1 validation error for start_runArguments\nseeds.0\n  Input should be a valid integer [type=int_type, input_value=True, input_type=bool]\n    For further information visit https://errors.pydantic.dev/2.14/v/int_type",
+  "invalid_job_id": "Error executing tool get_status: Invalid job_id; use the ID returned by start_run",
+  "batch_job_id": "sim_20261122T063158_63f0f86c7f7b",
+  "idempotent_retry": true,
+  "request_conflict": "Error executing tool start_run: request_id already belongs to different parameters",
+  "concurrent_start": "Error executing tool start_run: A simulation task is already active: sim_20261122T063158_63f0f86c7f7b",
+  "status_before_disconnect": {
+    "job_id": "sim_20261122T063158_63f0f86c7f7b",
+    "request_id": "mcp_smoke_ec7c58a7755b48729d9ee93e6bde17cb",
+    "status": "queued",
+    "created_at": "2026-11-22T06:31:58.241855+00:00",
+    "created_epoch": 1795329118.2418532,
+    "heartbeat_epoch": 1795329118.2418532,
+    "settings": {
+      "source_project": "E:\\EIE575_Tools\\workspace\\EIE575_TABR_Starter",
+      "tools_root": "E:\\EIE575_Tools",
+      "state_root": "E:\\Temp\\eie575-sim-runtime",
+      "max_run_wall_s": 1800
+    },
+    "schemes": [
+      "G0",
+      "G3"
+    ],
+    "seeds": [
+      0
+    ],
+    "scope": "S1 two-vehicle 30-second functional test; not S0/S2 formal experiments",
+    "current_run": null,
+    "runs": [
+      {
+        "index": 0,
+        "scheme": "G0",
+        "seed": 0,
+        "status": "pending",
+        "result_dir": null
+      },
+      {
+        "index": 1,
+        "scheme": "G3",
+        "seed": 0,
+        "status": "pending",
+        "result_dir": null
+      }
+    ],
+    "worker_alive": false,
+    "cancellation_requested": false,
+    "completed_runs": 0,
+    "total_runs": 2,
+    "elapsed_s": 0.038,
+    "heartbeat_age_s": 0.038,
+    "process_tree": [],
+    "progress": null,
+    "telemetry_note": "Progress is from flushed logs (normally every 5 wall-clock seconds); CBR/TX/RX CSV may be buffered."
+  },
+  "status_after_reconnect": {
+    "job_id": "sim_20261122T063158_63f0f86c7f7b",
+    "request_id": "mcp_smoke_ec7c58a7755b48729d9ee93e6bde17cb",
+    "status": "running",
+    "created_at": "2026-11-22T06:31:58.241855+00:00",
+    "created_epoch": 1795329118.2418532,
+    "heartbeat_epoch": 1795329119.1074066,
+    "settings": {
+      "source_project": "E:\\EIE575_Tools\\workspace\\EIE575_TABR_Starter",
+      "tools_root": "E:\\EIE575_Tools",
+      "state_root": "E:\\Temp\\eie575-sim-runtime",
+      "max_run_wall_s": 1800
+    },
+    "schemes": [
+      "G0",
+      "G3"
+    ],
+    "seeds": [
+      0
+    ],
+    "scope": "S1 two-vehicle 30-second functional test; not S0/S2 formal experiments",
+    "current_run": 0,
+    "runs": [
+      {
+        "index": 0,
+        "scheme": "G0",
+        "seed": 0,
+        "status": "running",
+        "result_dir": "E:\\Temp\\eie575-sim-runtime\\jobs\\sim_20261122T063158_63f0f86c7f7b\\project\\results\\G0_seed0_20261122_143159_080665",
+        "started_at": "2026-11-22T06:31:58.691699+00:00",
+        "started_epoch": 1795329118.6917086
+      },
+      {
+        "index": 1,
+        "scheme": "G3",
+        "seed": 0,
+        "status": "pending",
+        "result_dir": null
+      }
+    ],
+    "worker": {
+      "pid": 33428,
+      "create_time": 1795329118.2895555
+    },
+    "stage": "simulation",
+    "input_hashes_file": "E:\\Temp\\eie575-sim-runtime\\jobs\\sim_20261122T063158_63f0f86c7f7b\\input_hashes.json",
+    "engine": {
+      "pid": 2756,
+      "create_time": 1795329118.6940298
+    },
+    "worker_alive": true,
+    "cancellation_requested": false,
+    "completed_runs": 0,
+    "total_runs": 2,
+    "elapsed_s": 1.253,
+    "heartbeat_age_s": 0.387,
+    "process_tree": [
+      {
+        "pid": 2756,
+        "create_time": 1795329118.6940298,
+        "name": "python.exe"
+      },
+      {
+        "pid": 33864,
+        "create_time": 1795329118.7032585,
+        "name": "conhost.exe"
+      },
+      {
+        "pid": 33680,
+        "create_time": 1795329118.71935,
+        "name": "python.exe"
+      },
+      {
+        "pid": 29836,
+        "create_time": 1795329119.1024508,
+        "name": "python2.exe"
+      },
+      {
+        "pid": 27264,
+        "create_time": 1795329119.1107087,
+        "name": "conhost.exe"
+      }
+    ],
+    "progress": null,
+    "telemetry_note": "Progress is from flushed logs (normally every 5 wall-clock seconds); CBR/TX/RX CSV may be buffered."
+  },
+  "batch_final_status": {
+    "job_id": "sim_20261122T063158_63f0f86c7f7b",
+    "request_id": "mcp_smoke_ec7c58a7755b48729d9ee93e6bde17cb",
+    "status": "passed",
+    "created_at": "2026-11-22T06:31:58.241855+00:00",
+    "created_epoch": 1795329118.2418532,
+    "heartbeat_epoch": 1795329124.9038336,
+    "settings": {
+      "source_project": "E:\\EIE575_Tools\\workspace\\EIE575_TABR_Starter",
+      "tools_root": "E:\\EIE575_Tools",
+      "state_root": "E:\\Temp\\eie575-sim-runtime",
+      "max_run_wall_s": 1800
+    },
+    "schemes": [
+      "G0",
+      "G3"
+    ],
+    "seeds": [
+      0
+    ],
+    "scope": "S1 two-vehicle 30-second functional test; not S0/S2 formal experiments",
+    "current_run": 1,
+    "runs": [
+      {
+        "index": 0,
+        "scheme": "G0",
+        "seed": 0,
+        "status": "passed",
+        "result_dir": "E:\\Temp\\eie575-sim-runtime\\jobs\\sim_20261122T063158_63f0f86c7f7b\\project\\results\\G0_seed0_20261122_143159_080665",
+        "started_at": "2026-11-22T06:31:58.691699+00:00",
+        "started_epoch": 1795329118.6917086,
+        "exit_code": 0,
+        "elapsed_s": 4.454,
+        "finished_at": "2026-11-22T06:32:03.146792+00:00"
+      },
+      {
+        "index": 1,
+        "scheme": "G3",
+        "seed": 0,
+        "status": "passed",
+        "result_dir": "E:\\Temp\\eie575-sim-runtime\\jobs\\sim_20261122T063158_63f0f86c7f7b\\project\\results\\G3_seed0_20261122_143203_495006",
+        "started_at": "2026-11-22T06:32:03.162164+00:00",
+        "started_epoch": 1795329123.162174,
+        "exit_code": 0,
+        "elapsed_s": 1.724,
+        "finished_at": "2026-11-22T06:32:04.887284+00:00"
+      }
+    ],
+    "worker": {
+      "pid": 33428,
+      "create_time": 1795329118.2895555
+    },
+    "stage": "finished",
+    "input_hashes_file": "E:\\Temp\\eie575-sim-runtime\\jobs\\sim_20261122T063158_63f0f86c7f7b\\input_hashes.json",
+    "engine": null,
+    "finished_epoch": 1795329124.9038196,
+    "finished_at": "2026-11-22T06:32:04.903822+00:00",
+    "worker_alive": false,
+    "cancellation_requested": false,
+    "completed_runs": 2,
+    "total_runs": 2,
+    "elapsed_s": 6.662,
+    "heartbeat_age_s": 0.155,
+    "process_tree": [],
+    "progress": {
+      "simulation_time_s": 30.0,
+      "simulation_limit_s": 30.0,
+      "percent": 100.0
+    },
+    "telemetry_note": "Progress is from flushed logs (normally every 5 wall-clock seconds); CBR/TX/RX CSV may be buffered."
+  },
+  "sample_log": {
+    "job_id": "sim_20261122T063158_63f0f86c7f7b",
+    "run_index": 0,
+    "log": "simulation",
+    "available": true,
+    "text": "** Event #0   t=0   Elapsed: 2e-006s (0m 00s)  0% completed  (0% total)\n     Speed:     ev/sec=0   simsec/sec=0   ev/simsec=0\n     Messages:  created: 4   present: 4   in FES: 4\n** Event #9422   t=30   Elapsed: 0.757541s (0m 00s)  100% completed  (100% total)\n     Speed:     ev/sec=12437.7   simsec/sec=39.602   ev/simsec=314.067\n     Messages:  created: 6852   present: 40   in FES: 5\n\n<!> Simulation time limit reached -- at t=30s, event #9422\n\nCalling finish() at end of Run #0...\n\nEnd.",
+    "truncated": true,
+    "size_bytes": 1128,
+    "modified_epoch": 1795329122.8301673
+  },
+  "invalid_log_path": "Error executing tool tail_log: 1 validation error for tail_logArguments\nlog\n  Input should be 'simulation', 'launcher', 'launchd', 'worker' or 'driver' [type=literal_error, input_value='../job.json', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/literal_error",
+  "batch_results": {
+    "job_id": "sim_20261122T063158_63f0f86c7f7b",
+    "status": "passed",
+    "scope": "S1 two-vehicle 30-second functional test; not S0/S2 formal experiments",
+    "complete": true,
+    "runs": [
+      {
+        "index": 0,
+        "scheme": "G0",
+        "seed": 0,
+        "status": "passed",
+        "result_dir": "E:\\Temp\\eie575-sim-runtime\\jobs\\sim_20261122T063158_63f0f86c7f7b\\project\\results\\G0_seed0_20261122_143159_080665",
+        "started_at": "2026-11-22T06:31:58.691699+00:00",
+        "started_epoch": 1795329118.6917086,
+        "exit_code": 0,
+        "elapsed_s": 4.454,
+        "finished_at": "2026-11-22T06:32:03.146792+00:00",
+        "complete": true,
+        "summary": {
+          "passed": true,
+          "checks_total": 32,
+          "failed_checks": [],
+          "events": [
+            {
+              "D_info_s": 0.06207462393500052,
+              "D_update_s": 0.06207462393500052,
+              "analysis_status": "received_on_time",
+              "deadline_at": "20.899999999999999",
+              "deadline_miss": false,
+              "deadline_s": "0.80000000000000004",
+              "event_id": "0",
+              "event_status": "occurred",
+              "exclusion_reason": "",
+              "first_event_rx": 20.162074623935,
+              "first_update_rx": 20.162074623935,
+              "no_receive": false,
+              "obs_end": "22.099999999999998",
+              "pair_id": "lead->follow",
+              "planned_event_id": "lead-brake-1",
+              "planned_time": "20",
+              "pre_receive_control_ticks": 6,
+              "receiver_id": "follow",
+              "run_id": "G0_seed0_20261122_143159_080665",
+              "sender_id": "lead",
+              "t0": "20.099999999999998",
+              "t0_lower_bound": "20",
+              "t_detect": 20.1,
+              "unknown_state_rows": 6
+            }
+          ],
+          "scope": "Smoke validation only; no significance test or claimed scheme ranking."
+        },
+        "file_count": 23
+      },
+      {
+        "index": 1,
+        "scheme": "G3",
+        "seed": 0,
+        "status": "passed",
+        "result_dir": "E:\\Temp\\eie575-sim-runtime\\jobs\\sim_20261122T063158_63f0f86c7f7b\\project\\results\\G3_seed0_20261122_143203_495006",
+        "started_at": "2026-11-22T06:32:03.162164+00:00",
+        "started_epoch": 1795329123.162174,
+        "exit_code": 0,
+        "elapsed_s": 1.724,
+        "finished_at": "2026-11-22T06:32:04.887284+00:00",
+        "complete": true,
+        "summary": {
+          "passed": true,
+          "checks_total": 32,
+          "failed_checks": [],
+          "events": [
+            {
+              "D_info_s": 0.06207462393500052,
+              "D_update_s": 0.06207462393500052,
+              "analysis_status": "received_on_time",
+              "deadline_at": "20.899999999999999",
+              "deadline_miss": false,
+              "deadline_s": "0.80000000000000004",
+              "event_id": "0",
+              "event_status": "occurred",
+              "exclusion_reason": "",
+              "first_event_rx": 20.162074623935,
+              "first_update_rx": 20.162074623935,
+              "no_receive": false,
+              "obs_end": "22.099999999999998",
+              "pair_id": "lead->follow",
+              "planned_event_id": "lead-brake-1",
+              "planned_time": "20",
+              "pre_receive_control_ticks": 6,
+              "receiver_id": "follow",
+              "run_id": "G3_seed0_20261122_143203_495006",
+              "sender_id": "lead",
+              "t0": "20.099999999999998",
+              "t0_lower_bound": "20",
+              "t_detect": 20.1,
+              "unknown_state_rows": 6
+            }
+          ],
+          "scope": "Smoke validation only; no significance test or claimed scheme ranking."
+        },
+        "file_count": 23
+      }
+    ]
+  },
+  "error": {
+    "type": "ExceptionGroup",
+    "error": "unhandled errors in a TaskGroup (1 sub-exception)",
+    "causes": [
+      {
+        "type": "ExceptionGroup",
+        "error": "unhandled errors in a TaskGroup (1 sub-exception)",
+        "causes": [
+          {
+            "type": "KeyError",
+            "error": "'checks'"
+          }
+        ]
+      }
+    ]
+  },
+  "elapsed_s": 9.122,
+  "finished_at": "2026-11-22T06:32:06.328049+00:00"
+}

@@ -1,0 +1,35 @@
+{
+  "archive": "EIE575_实验完整归档.zip",
+  "archive_bytes": 450466520,
+  "archive_sha256": "53fdc62a8dbe046fd8190226dcf60e0f99f140453b49ffb01a488cb7b771a731",
+  "report": "EIE575_补充实验报告.pdf",
+  "report_bytes": 187561,
+  "report_sha256": "c8445bb7ed40a1f7d80d37b99febeea2810990f32b4b6a120becec00cdb93a72",
+  "components": {
+    "components/fixed4.zip": {
+      "size": 17669547,
+      "sha256": "181a33b031b485115a87e5ed7619b7be4fbf38979ca9b8d53a4713abc8dd46cd"
+    },
+    "components/main_E0_delta.zip": {
+      "size": 54224644,
+      "sha256": "851e2af364e027e4a5e6f93d95e2c234e266063b0d62cc11864d85ef1ba60e2f"
+    },
+    "components/main_P2.zip": {
+      "size": 94633465,
+      "sha256": "4daf9bf12ff12b6e16180e1aae5a3a0340fb184bca4181f13763e1f418559e7e"
+    },
+    "components/main_P3_start.zip": {
+      "size": 19902128,
+      "sha256": "a49140b285bafdb768a24a49a754d45d1682bdd7734d336886604e22235df8ce"
+    },
+    "components/mild20.zip": {
+      "size": 199401669,
+      "sha256": "fb4a816eb9ab2275ea3abbf746f09bca608a875521a8e027fbc82800e256ea67"
+    },
+    "components/sparse16.zip": {
+      "size": 64305901,
+      "sha256": "64441495e389697cc8b3f562ab6cbfe89fd69ebcb394d50a22bf5f03b0584b28"
+    }
+  },
+  "verified_outer_files": 55
+}

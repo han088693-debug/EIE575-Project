@@ -1,0 +1,724 @@
+{
+  "probes": {
+    "p2_resource_16_G0": {
+      "scope": "engineering",
+      "config": "p2/resource_16.json",
+      "scenario": "E0",
+      "load_id": "low",
+      "scheme": "G0",
+      "seed": 200,
+      "density_per_lane_km": 0.5
+    },
+    "p2_resource_16_G1": {
+      "scope": "engineering",
+      "config": "p2/resource_16.json",
+      "scenario": "E0",
+      "load_id": "low",
+      "scheme": "G1",
+      "seed": 200,
+      "density_per_lane_km": 0.5
+    },
+    "p2_resource_64_G0": {
+      "scope": "engineering",
+      "config": "p2/resource_64.json",
+      "scenario": "E0",
+      "load_id": "low",
+      "scheme": "G0",
+      "seed": 200,
+      "density_per_lane_km": 2
+    },
+    "p2_resource_64_G1": {
+      "scope": "engineering",
+      "config": "p2/resource_64.json",
+      "scenario": "E0",
+      "load_id": "low",
+      "scheme": "G1",
+      "seed": 200,
+      "density_per_lane_km": 2
+    },
+    "p2_resource_160_G0": {
+      "scope": "engineering",
+      "config": "p2/resource_160.json",
+      "scenario": "E0",
+      "load_id": "low",
+      "scheme": "G0",
+      "seed": 200,
+      "density_per_lane_km": 5
+    },
+    "p2_resource_160_G1": {
+      "scope": "engineering",
+      "config": "p2/resource_160.json",
+      "scenario": "E0",
+      "load_id": "low",
+      "scheme": "G1",
+      "seed": 200,
+      "density_per_lane_km": 5
+    },
+    "p2_resource_480_G0": {
+      "scope": "engineering",
+      "config": "p2/resource_480.json",
+      "scenario": "E0",
+      "load_id": "high",
+      "scheme": "G0",
+      "seed": 200,
+      "density_per_lane_km": 15
+    },
+    "p2_resource_480_G1": {
+      "scope": "engineering",
+      "config": "p2/resource_480.json",
+      "scenario": "E0",
+      "load_id": "high",
+      "scheme": "G1",
+      "seed": 200,
+      "density_per_lane_km": 15
+    },
+    "p2_resource_960_G0": {
+      "scope": "engineering",
+      "config": "p2/resource_960.json",
+      "scenario": "E0",
+      "load_id": "high",
+      "scheme": "G0",
+      "seed": 200,
+      "density_per_lane_km": 30
+    },
+    "p2_resource_960_G1": {
+      "scope": "engineering",
+      "config": "p2/resource_960.json",
+      "scenario": "E0",
+      "load_id": "high",
+      "scheme": "G1",
+      "seed": 200,
+      "density_per_lane_km": 30
+    },
+    "p2_S1_full": {
+      "scope": "engineering",
+      "config": "p2/function_full.json",
+      "scenario": "S1",
+      "load_id": "low",
+      "scheme": "G3",
+      "seed": 200,
+      "density_per_lane_km": 0.5
+    },
+    "p2_S0_full": {
+      "scope": "engineering",
+      "config": "p2/function_full.json",
+      "scenario": "S0",
+      "load_id": "low",
+      "scheme": "G3",
+      "seed": 200,
+      "density_per_lane_km": 0.5
+    },
+    "p2_S2_full": {
+      "scope": "engineering",
+      "config": "p2/function_full.json",
+      "scenario": "S2",
+      "load_id": "low",
+      "scheme": "G3",
+      "seed": 200,
+      "density_per_lane_km": 0.5
+    },
+    "p2_S1_registered_pairs": {
+      "scope": "engineering",
+      "config": "p2/function_registered_pairs.json",
+      "scenario": "S1",
+      "load_id": "low",
+      "scheme": "G3",
+      "seed": 200,
+      "density_per_lane_km": 0.5
+    },
+    "p2_S0_registered_pairs": {
+      "scope": "engineering",
+      "config": "p2/function_registered_pairs.json",
+      "scenario": "S0",
+      "load_id": "low",
+      "scheme": "G3",
+      "seed": 200,
+      "density_per_lane_km": 0.5
+    },
+    "p2_S2_registered_pairs": {
+      "scope": "engineering",
+      "config": "p2/function_registered_pairs.json",
+      "scenario": "S2",
+      "load_id": "low",
+      "scheme": "G3",
+      "seed": 200,
+      "density_per_lane_km": 0.5
+    },
+    "p2_S1_radio_loss": {
+      "scope": "engineering",
+      "config": "p2/receiver_loss.json",
+      "scenario": "S1",
+      "load_id": "low",
+      "scheme": "G3",
+      "seed": 200,
+      "density_per_lane_km": 0.5
+    },
+    "p2_S1_G0": {
+      "scope": "engineering",
+      "config": "p2/function_registered_pairs.json",
+      "scenario": "S1",
+      "load_id": "low",
+      "scheme": "G0",
+      "seed": 200,
+      "density_per_lane_km": 0.5
+    },
+    "p2_S1_G1": {
+      "scope": "engineering",
+      "config": "p2/function_registered_pairs.json",
+      "scenario": "S1",
+      "load_id": "low",
+      "scheme": "G1",
+      "seed": 200,
+      "density_per_lane_km": 0.5
+    },
+    "p2_S1_G2": {
+      "scope": "engineering",
+      "config": "p2/function_registered_pairs.json",
+      "scenario": "S1",
+      "load_id": "low",
+      "scheme": "G2",
+      "seed": 200,
+      "density_per_lane_km": 0.5
+    },
+    "p2_S0_G0": {
+      "scope": "engineering",
+      "config": "p2/function_registered_pairs.json",
+      "scenario": "S0",
+      "load_id": "low",
+      "scheme": "G0",
+      "seed": 200,
+      "density_per_lane_km": 0.5
+    },
+    "p2_S0_G1": {
+      "scope": "engineering",
+      "config": "p2/function_registered_pairs.json",
+      "scenario": "S0",
+      "load_id": "low",
+      "scheme": "G1",
+      "seed": 200,
+      "density_per_lane_km": 0.5
+    },
+    "p2_S0_G2": {
+      "scope": "engineering",
+      "config": "p2/function_registered_pairs.json",
+      "scenario": "S0",
+      "load_id": "low",
+      "scheme": "G2",
+      "seed": 200,
+      "density_per_lane_km": 0.5
+    },
+    "p2_S2_G0": {
+      "scope": "engineering",
+      "config": "p2/function_registered_pairs.json",
+      "scenario": "S2",
+      "load_id": "low",
+      "scheme": "G0",
+      "seed": 200,
+      "density_per_lane_km": 0.5
+    },
+    "p2_S2_G1": {
+      "scope": "engineering",
+      "config": "p2/function_registered_pairs.json",
+      "scenario": "S2",
+      "load_id": "low",
+      "scheme": "G1",
+      "seed": 200,
+      "density_per_lane_km": 0.5
+    },
+    "p2_S2_G2": {
+      "scope": "engineering",
+      "config": "p2/function_registered_pairs.json",
+      "scenario": "S2",
+      "load_id": "low",
+      "scheme": "G2",
+      "seed": 200,
+      "density_per_lane_km": 0.5
+    },
+    "p3e0_25b91db7079611_d5_w20_s100": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup20.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 100,
+      "density_per_lane_km": 5
+    },
+    "p3e0_25b91db7079611_d5_w20_s101": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup20.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 101,
+      "density_per_lane_km": 5
+    },
+    "p3e0_25b91db7079611_d15_w20_s100": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup20.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 100,
+      "density_per_lane_km": 15
+    },
+    "p3e0_25b91db7079611_d15_w20_s101": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup20.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 101,
+      "density_per_lane_km": 15
+    },
+    "p3e0_25b91db7079611_d30_w20_s100": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup20.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 100,
+      "density_per_lane_km": 30
+    },
+    "p3e0_25b91db7079611_d30_w20_s101": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup20.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 101,
+      "density_per_lane_km": 30
+    },
+    "p3e0_25b91db7079611_d1_w20_s100": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup20.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 100,
+      "density_per_lane_km": 1
+    },
+    "p3e0_25b91db7079611_d1_w20_s101": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup20.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 101,
+      "density_per_lane_km": 1
+    },
+    "p3e0_25b91db7079611_d2_w20_s100": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup20.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 100,
+      "density_per_lane_km": 2
+    },
+    "p3e0_25b91db7079611_d2_w20_s101": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup20.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 101,
+      "density_per_lane_km": 2
+    },
+    "p3e0_25b91db7079611_d10_w20_s100": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup20.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 100,
+      "density_per_lane_km": 10
+    },
+    "p3e0_25b91db7079611_d10_w20_s101": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup20.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 101,
+      "density_per_lane_km": 10
+    },
+    "p3e0_25b91db7079611_d20_w20_s100": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup20.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 100,
+      "density_per_lane_km": 20
+    },
+    "p3e0_25b91db7079611_d20_w20_s101": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup20.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 101,
+      "density_per_lane_km": 20
+    },
+    "p3e0_25b91db7079611_d25_w20_s100": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup20.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 100,
+      "density_per_lane_km": 25
+    },
+    "p3e0_25b91db7079611_d25_w20_s101": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup20.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 101,
+      "density_per_lane_km": 25
+    },
+    "p3e0_25b91db7079611_d5_w40_s100": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup40.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 100,
+      "density_per_lane_km": 5
+    },
+    "p3e0_25b91db7079611_d5_w40_s101": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup40.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 101,
+      "density_per_lane_km": 5
+    },
+    "p3e0_25b91db7079611_d15_w40_s100": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup40.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 100,
+      "density_per_lane_km": 15
+    },
+    "p3e0_25b91db7079611_d15_w40_s101": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup40.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 101,
+      "density_per_lane_km": 15
+    },
+    "p3e0_25b91db7079611_d30_w40_s100": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup40.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 100,
+      "density_per_lane_km": 30
+    },
+    "p3e0_25b91db7079611_d30_w40_s101": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup40.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 101,
+      "density_per_lane_km": 30
+    },
+    "p3e0_25b91db7079611_d1_w40_s100": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup40.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 100,
+      "density_per_lane_km": 1
+    },
+    "p3e0_25b91db7079611_d1_w40_s101": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup40.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 101,
+      "density_per_lane_km": 1
+    },
+    "p3e0_25b91db7079611_d2_w40_s100": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup40.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 100,
+      "density_per_lane_km": 2
+    },
+    "p3e0_25b91db7079611_d2_w40_s101": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup40.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 101,
+      "density_per_lane_km": 2
+    },
+    "p3e0_25b91db7079611_d10_w40_s100": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup40.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 100,
+      "density_per_lane_km": 10
+    },
+    "p3e0_25b91db7079611_d10_w40_s101": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup40.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 101,
+      "density_per_lane_km": 10
+    },
+    "p3e0_25b91db7079611_d20_w40_s100": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup40.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 100,
+      "density_per_lane_km": 20
+    },
+    "p3e0_25b91db7079611_d20_w40_s101": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup40.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 101,
+      "density_per_lane_km": 20
+    },
+    "p3e0_25b91db7079611_d25_w40_s100": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup40.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 100,
+      "density_per_lane_km": 25
+    },
+    "p3e0_25b91db7079611_d25_w40_s101": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup40.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 101,
+      "density_per_lane_km": 25
+    },
+    "p3e0_25b91db7079611_d5_w60_s100": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup60.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 100,
+      "density_per_lane_km": 5
+    },
+    "p3e0_25b91db7079611_d5_w60_s101": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup60.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 101,
+      "density_per_lane_km": 5
+    },
+    "p3e0_25b91db7079611_d15_w60_s100": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup60.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 100,
+      "density_per_lane_km": 15
+    },
+    "p3e0_25b91db7079611_d15_w60_s101": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup60.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 101,
+      "density_per_lane_km": 15
+    },
+    "p3e0_25b91db7079611_d30_w60_s100": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup60.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 100,
+      "density_per_lane_km": 30
+    },
+    "p3e0_25b91db7079611_d30_w60_s101": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup60.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 101,
+      "density_per_lane_km": 30
+    },
+    "p3e0_25b91db7079611_d1_w60_s100": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup60.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 100,
+      "density_per_lane_km": 1
+    },
+    "p3e0_25b91db7079611_d1_w60_s101": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup60.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 101,
+      "density_per_lane_km": 1
+    },
+    "p3e0_25b91db7079611_d2_w60_s100": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup60.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 100,
+      "density_per_lane_km": 2
+    },
+    "p3e0_25b91db7079611_d2_w60_s101": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup60.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 101,
+      "density_per_lane_km": 2
+    },
+    "p3e0_25b91db7079611_d10_w60_s100": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup60.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 100,
+      "density_per_lane_km": 10
+    },
+    "p3e0_25b91db7079611_d10_w60_s101": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup60.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 101,
+      "density_per_lane_km": 10
+    },
+    "p3e0_25b91db7079611_d20_w60_s100": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup60.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 100,
+      "density_per_lane_km": 20
+    },
+    "p3e0_25b91db7079611_d20_w60_s101": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup60.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 101,
+      "density_per_lane_km": 20
+    },
+    "p3e0_25b91db7079611_d25_w60_s100": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup60.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 100,
+      "density_per_lane_km": 25
+    },
+    "p3e0_25b91db7079611_d25_w60_s101": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/warmup60.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 101,
+      "density_per_lane_km": 25
+    },
+    "x88f8e4f6c52e2f": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/p3e0_25b91db7079611_d30_w20_s100_ext1.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 100,
+      "density_per_lane_km": 30
+    },
+    "x697666140756e9": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/p3e0_25b91db7079611_d30_w20_s101_ext1.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 101,
+      "density_per_lane_km": 30
+    },
+    "x1207d90591bbe1": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/p3e0_25b91db7079611_d20_w20_s100_ext1.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 100,
+      "density_per_lane_km": 20
+    },
+    "x337b9cd8a7a60a": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/p3e0_25b91db7079611_d25_w20_s100_ext1.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 100,
+      "density_per_lane_km": 25
+    },
+    "b2e5d6a54cfd0e": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/b2e5d6a54cfd0e.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 100,
+      "density_per_lane_km": 25
+    },
+    "b263d1fab78f64": {
+      "scope": "engineering",
+      "config": "p3/25b91db7079611/b263d1fab78f64.json",
+      "scenario": "E0",
+      "load_id": "candidate",
+      "scheme": "G0",
+      "seed": 101,
+      "density_per_lane_km": 25
+    }
+  }
+}

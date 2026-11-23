@@ -1,0 +1,100 @@
+{
+  "started_at": "2026-11-22T06:27:53.627795+00:00",
+  "passed": false,
+  "tool_names": [
+    "get_results",
+    "get_status",
+    "start_run",
+    "stop_run",
+    "tail_log"
+  ],
+  "environment": {
+    "ready": true,
+    "missing": [],
+    "platform": "nt",
+    "settings": {
+      "source_project": "E:\\EIE575_Tools\\workspace\\EIE575_TABR_Starter",
+      "tools_root": "E:\\EIE575_Tools",
+      "state_root": "E:\\Temp\\eie575-sim-runtime",
+      "max_run_wall_s": 1800
+    },
+    "scope": "S1 two-vehicle 30-second functional test; not S0/S2 formal experiments"
+  },
+  "invalid_scheme": "Error executing tool start_run: schemes must be a nonempty list containing G0, G1, G2 or G3",
+  "boolean_seed": "Error executing tool start_run: 1 validation error for start_runArguments\nseeds.0\n  Input should be a valid integer [type=int_type, input_value=True, input_type=bool]\n    For further information visit https://errors.pydantic.dev/2.14/v/int_type",
+  "invalid_job_id": "Error executing tool get_status: Invalid job_id; use the ID returned by start_run",
+  "batch_job_id": "sim_20261122T062754_59d63c7bab66",
+  "idempotent_retry": true,
+  "request_conflict": "Error executing tool start_run: request_id already belongs to different parameters",
+  "concurrent_start": "Error executing tool start_run: A simulation task is already active: sim_20261122T062754_59d63c7bab66",
+  "status_before_disconnect": {
+    "job_id": "sim_20261122T062754_59d63c7bab66",
+    "request_id": "mcp_smoke_5099f9ca9bff4f60a094d5e4239da632",
+    "status": "queued",
+    "created_at": "2026-11-22T06:27:54.751609+00:00",
+    "created_epoch": 1795328874.7516072,
+    "heartbeat_epoch": 1795328874.7516072,
+    "settings": {
+      "source_project": "E:\\EIE575_Tools\\workspace\\EIE575_TABR_Starter",
+      "tools_root": "E:\\EIE575_Tools",
+      "state_root": "E:\\Temp\\eie575-sim-runtime",
+      "max_run_wall_s": 1800
+    },
+    "schemes": [
+      "G0",
+      "G3"
+    ],
+    "seeds": [
+      0
+    ],
+    "scope": "S1 two-vehicle 30-second functional test; not S0/S2 formal experiments",
+    "current_run": null,
+    "runs": [
+      {
+        "index": 0,
+        "scheme": "G0",
+        "seed": 0,
+        "status": "pending",
+        "result_dir": null
+      },
+      {
+        "index": 1,
+        "scheme": "G3",
+        "seed": 0,
+        "status": "pending",
+        "result_dir": null
+      }
+    ],
+    "worker": {
+      "pid": 30312,
+      "create_time": 1795328874.7537098
+    },
+    "worker_alive": true,
+    "cancellation_requested": false,
+    "completed_runs": 0,
+    "total_runs": 2,
+    "elapsed_s": 0.056,
+    "heartbeat_age_s": 0.056,
+    "process_tree": [],
+    "progress": null,
+    "telemetry_note": "Progress is from flushed logs (normally every 5 wall-clock seconds); CBR/TX/RX CSV may be buffered."
+  },
+  "error": {
+    "type": "ExceptionGroup",
+    "error": "unhandled errors in a TaskGroup (1 sub-exception)",
+    "causes": [
+      {
+        "type": "ExceptionGroup",
+        "error": "unhandled errors in a TaskGroup (1 sub-exception)",
+        "causes": [
+          {
+            "type": "AssertionError",
+            "error": "{'job_id': 'sim_20261122T062754_59d63c7bab66', 'request_id': 'mcp_smoke_5099f9ca9bff4f60a094d5e4239da632', 'status': 'interrupted', 'created_at': '2026-11-22T06:27:54.751609+00:00', 'created_epoch': 1795328874.7516072, 'heartbeat_epoch': 1795328874.7516072, 'settings': {'source_project': 'E:\\\\EIE575_Tools\\\\workspace\\\\EIE575_TABR_Starter', 'tools_root': 'E:\\\\EIE575_Tools', 'state_root': 'E:\\\\Temp\\\\eie575-sim-runtime', 'max_run_wall_s': 1800}, 'schemes': ['G0', 'G3'], 'seeds': [0], 'scope': 'S1 two-vehicle 30-second functional test; not S0/S2 formal experiments', 'current_run': None, 'runs': [{'index': 0, 'scheme': 'G0', 'seed': 0, 'status': 'pending', 'result_dir': None}, {'index': 1, 'scheme': 'G3', 'seed': 0, 'status': 'pending', 'result_dir': None}], 'worker': {'pid': 30312, 'create_time': 1795328874.7537098}, 'worker_alive': False, 'error': 'Worker is no longer alive; partial outputs are not valid results', 'cancellation_requested': False, 'completed_runs': 0, 'total_runs': 2, 'elapsed_s': 1.133, 'heartbeat_age_s': 1.133, 'process_tree': [], 'progress': None, 'telemetry_note': 'Progress is from flushed logs (normally every 5 wall-clock seconds); CBR/TX/RX CSV may be buffered.'}"
+          }
+        ]
+      }
+    ]
+  },
+  "elapsed_s": 3.427,
+  "finished_at": "2026-11-22T06:27:57.054591+00:00"
+}

@@ -1,36 +1,37 @@
 # EIE575-Project
 
-EIE575 课程项目文件归档（TABR 紧急制动仿真 / OMNeT++ 场景 / 仿真 MCP 工具链）。
+EIE575 课程项目：TABR 紧急制动消息（V2X）仿真 + 自研 MCP 仿真工具链。
 
-## 仓库内容
+**先看 → [`进度说明.md`](进度说明.md)**：做了什么、做到哪一步、还剩什么没做，一页看完。
 
-| 文件 | 大小 | 说明 |
-| --- | --- | --- |
-| `EIE575_Project_MCP_及使用说明_20261123.zip` | 866 KB | 项目源码 + 仿真 MCP + 使用说明，共 170 个文件 |
-| `EIE575_前向升级.zip` | 95 KB | 前向升级包：README、patch、install.py、release.json、verify.py |
+## 仓库结构
 
-压缩包内目录结构（`EIE575_Project_MCP_及使用说明_20261123.zip`）：
+| 路径 | 内容 |
+| --- | --- |
+| [`进度说明.md`](进度说明.md) | 项目进度、已完成项、未完成项、验证方式 |
+| [`EIE575_剩余工作与执行计划_20261123.md`](EIE575_剩余工作与执行计划_20261123.md) | 剩余工作排期与验收条件 |
+| [`TABR_project/`](TABR_project) | 主线运行器、场景、配置、预编译模拟器与源码 |
+| [`S1_starter/`](S1_starter) | OMNeT++ 起步工程（TabrApp、BrakeScenario、SUMO 路网） |
+| [`simulation_mcp/`](simulation_mcp) | 仿真 MCP 服务：宿主、控制器、安装器、客户端、测试与验收证据 |
+| [`实验归档/`](实验归档) | 校准结论、补充实验、运行器更新记录、CSV/JSON/PDF 与恢复脚本 |
+| [`从这里开始.md`](从这里开始.md) / [`正式实验MCP使用说明.md`](正式实验MCP使用说明.md) | 上手与 MCP 调用说明 |
+| `*.zip` | 原始交付压缩包（内容已解压到上述目录，保留用于校验） |
 
-- `TABR_project/` — 主项目：`configs/`（实验配置与 schema）、`tools/`（实验、标定、分析脚本）、`docs/`、仿真可执行文件
-- `S1_starter/` — OMNeT++ 起步工程：`src/`（TabrApp、BrakeScenario 等）、`scenarios/`（SUMO 路网与路由）、`tools/`、`Makefile`、`omnetpp.ini`
-- `simulation_mcp/` — 仿真 MCP 服务：`server.py`、`controller.py`、`host.py`、`worker.py`、`install.py`、`tests/`、`evidence/`
-- 根目录另有 MCP 使用说明与执行计划 Markdown 文档
+## 完整实验数据
 
-## 完整实验包
-
-`EIE575_实验完整包_20261123.zip`（903 MB）体积超出 Git 单文件 100 MB 上限，放在 Release 附件：
+原始数据 ZIP（约 900 MB）超出 Git 单文件 100 MB 上限，放在 Release 附件：
 
 <https://github.com/han088693-debug/EIE575-Project/releases/tag/v2026.11.23>
 
-## 获取
+## 快速开始
 
 ```bash
 git clone https://github.com/han088693-debug/EIE575-Project.git
 cd EIE575-Project
-unzip "EIE575_Project_MCP_及使用说明_20261123.zip"
+unzip "EIE575_Project_MCP_及使用说明_20261123.zip" -d EIE575MCP
 ```
 
-> 压缩包内中文文件名以 GBK 存储，Windows 资源管理器 / 7-Zip 直接解压即可；Linux 下如出现乱码，可用 `unzip -O cp936` 或 `7z x` 解压。
+压缩包内中文文件名以 GBK 存储，Windows 资源管理器 / 7-Zip 直接解压即可；Linux 下如出现乱码，可用 `unzip -O cp936` 或 `7z x`。
 
 ## 校验
 

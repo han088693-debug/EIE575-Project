@@ -1,0 +1,8 @@
+{
+  "format": "e0-closed-serial-wall-v1",
+  "machine_id": "LAPTOP-O7IPKP1U",
+  "cost_group": "E0/G0/registered_pairs",
+  "measured_slots": 1,
+  "closed_dir": "results/calibration/core_v1_budget2/v1_closed",
+  "closed_snapshot_sha256": "e11f2673af1005c75a267841338ec0f6287abef8d8b14196bb39e98525e9f550"
+}

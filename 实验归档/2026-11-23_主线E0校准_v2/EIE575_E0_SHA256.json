@@ -1,0 +1,50 @@
+{
+  "parent": {
+    "file": "../2026-11-22_补充实验归档/EIE575_实验完整归档.zip",
+    "sha256": "53fdc62a8dbe046fd8190226dcf60e0f99f140453b49ffb01a488cb7b771a731",
+    "bytes": 450466520
+  },
+  "delta": {
+    "file": "EIE575_E0_差异.zip",
+    "sha256": "5dd5dee132aec7c44f0d5e2170deb596df15da85942d50ec5130191c446ef925",
+    "bytes": 495292211
+  },
+  "files": {
+    "E0_校准结论.md": {
+      "sha256": "fd4cbe9d9d56a38f366216cf218ddbd02e4152cf834f8b63121e73808496205b",
+      "bytes": 5497
+    },
+    "density_cbr.png": {
+      "sha256": "127ad729be5cd2f5746470b455ab936ca87e04014e14de899ca91f8e232a038e",
+      "bytes": 95534
+    },
+    "candidate_decisions.csv": {
+      "sha256": "97f5fd8e8fcf44eef2b9a320157082f923a275b4055be1c79f9056bbf6fa31ab",
+      "bytes": 2401
+    },
+    "target_windows.csv": {
+      "sha256": "10112c3ab0f23cde3685878262f90ce2a293481ee3a379b17a30f7b3313c17ae",
+      "bytes": 22790
+    },
+    "spatial_windows.csv": {
+      "sha256": "f65138020fdfbb16b2721c53e8458030ff81ade392e1432dbae53793e25c73d5",
+      "bytes": 20968
+    },
+    "traffic.csv": {
+      "sha256": "59bc1a50bb3e9e818d108444e1647deae0ef77e3d2268ba1108754fecd1aea10",
+      "bytes": 1566
+    },
+    "verification.json": {
+      "sha256": "12a25214fd14b532b17176c00cb4a9924e883937fa11f0dc6ea4f22721fa80c3",
+      "bytes": 4294
+    },
+    "restore_e0.py": {
+      "bytes": 24237,
+      "sha256": "ff9975e016128832fcf120e21b40ca8d784f4822863674e34586df92b9fada8d"
+    },
+    "README_恢复说明.md": {
+      "bytes": 2671,
+      "sha256": "6d2986bad33667ce7780e113ad3808710c9760b74bbf6b91a9756533b61e1d86"
+    }
+  }
+}

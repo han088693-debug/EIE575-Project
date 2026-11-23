@@ -1,0 +1,722 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "experiment_id",
+    "stage",
+    "deployment_mode",
+    "tools",
+    "timing",
+    "motion",
+    "wireless",
+    "control",
+    "analysis",
+    "geometry",
+    "seeds",
+    "loads",
+    "calibration",
+    "scenarios",
+    "rng",
+    "p3_evidence"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "experiment_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "stage": {
+      "enum": [
+        "candidate",
+        "synthetic",
+        "frozen"
+      ]
+    },
+    "deployment_mode": {
+      "const": "all_vehicles_same_scheme"
+    },
+    "tools": {
+      "type": "object",
+      "required": [
+        "root",
+        "omnet_root",
+        "veins_root",
+        "sumo_bin",
+        "launcher_python",
+        "analysis_python",
+        "mcp_python",
+        "mcp_dir"
+      ],
+      "properties": {
+        "root": {
+          "type": "string",
+          "minLength": 1
+        },
+        "omnet_root": {
+          "type": "string",
+          "minLength": 1
+        },
+        "veins_root": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sumo_bin": {
+          "type": "string",
+          "minLength": 1
+        },
+        "launcher_python": {
+          "type": "string",
+          "minLength": 1
+        },
+        "analysis_python": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mcp_python": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mcp_dir": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "timing": {
+      "type": "object",
+      "required": [
+        "duration_s",
+        "warmup_s",
+        "motion_step_s",
+        "control_step_s",
+        "truth_step_s",
+        "time_resolution_s",
+        "deadline_s",
+        "observation_s",
+        "event_validity_s",
+        "stationary_eval_s",
+        "post_event_s",
+        "recovery_confirm_s"
+      ],
+      "properties": {
+        "duration_s": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "warmup_s": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "motion_step_s": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "control_step_s": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "truth_step_s": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "time_resolution_s": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "deadline_s": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "observation_s": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "event_validity_s": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "stationary_eval_s": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "post_event_s": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "recovery_confirm_s": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      }
+    },
+    "motion": {
+      "type": "object",
+      "required": [
+        "speed_kmh",
+        "deceleration_mps2",
+        "brake_threshold_mps2",
+        "vehicle_length_m",
+        "net_gap_m",
+        "stop_tolerance_mps"
+      ],
+      "properties": {
+        "speed_kmh": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "deceleration_mps2": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "brake_threshold_mps2": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "vehicle_length_m": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "net_gap_m": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "stop_tolerance_mps": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      }
+    },
+    "wireless": {
+      "type": "object",
+      "required": [
+        "power_mw",
+        "bitrate_bps",
+        "message_bits",
+        "priority",
+        "channel",
+        "min_power_dbm",
+        "noise_floor_dbm",
+        "interference_distance_m"
+      ],
+      "properties": {
+        "power_mw": {
+          "type": "number"
+        },
+        "bitrate_bps": {
+          "type": "number"
+        },
+        "message_bits": {
+          "type": "number"
+        },
+        "priority": {
+          "type": "number"
+        },
+        "channel": {
+          "type": "string",
+          "minLength": 1
+        },
+        "min_power_dbm": {
+          "type": "number"
+        },
+        "noise_floor_dbm": {
+          "type": "number"
+        },
+        "interference_distance_m": {
+          "type": "number"
+        }
+      }
+    },
+    "control": {
+      "type": "object",
+      "required": [
+        "lookback_s",
+        "error_scale_m",
+        "beta",
+        "r_min_hz",
+        "r_max_hz",
+        "b_initial_hz",
+        "b_min_hz",
+        "b_max_hz",
+        "cbr_target",
+        "deadband",
+        "feedback_gain",
+        "smoothing_old",
+        "jitter_fraction",
+        "g1_reference_kmh"
+      ],
+      "properties": {
+        "lookback_s": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "error_scale_m": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "beta": {
+          "type": "number",
+          "minimum": 0
+        },
+        "r_min_hz": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "r_max_hz": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "b_initial_hz": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "b_min_hz": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "b_max_hz": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "cbr_target": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "deadband": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "feedback_gain": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "smoothing_old": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "jitter_fraction": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "g1_reference_kmh": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      }
+    },
+    "analysis": {
+      "type": "object",
+      "required": [
+        "error_thresholds_m",
+        "main_error_threshold_m",
+        "h2_tolerance",
+        "cbr_match_tolerance",
+        "busy_integral_tolerance_s",
+        "method_version",
+        "comparisons"
+      ],
+      "properties": {
+        "error_thresholds_m": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "number"
+          }
+        },
+        "main_error_threshold_m": {
+          "type": "number"
+        },
+        "h2_tolerance": {
+          "type": "number"
+        },
+        "cbr_match_tolerance": {
+          "type": "number"
+        },
+        "busy_integral_tolerance_s": {
+          "type": "number"
+        },
+        "method_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "comparisons": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    },
+    "geometry": {
+      "type": "object",
+      "required": [
+        "length_m",
+        "target_x_m",
+        "background_lanes",
+        "background_pair_count",
+        "pair_min_distance_m",
+        "pair_max_distance_m",
+        "local_radius_m"
+      ],
+      "properties": {
+        "length_m": {
+          "type": "number"
+        },
+        "target_x_m": {
+          "type": "number"
+        },
+        "background_lanes": {
+          "type": "number"
+        },
+        "background_pair_count": {
+          "type": "number"
+        },
+        "pair_min_distance_m": {
+          "type": "number"
+        },
+        "pair_max_distance_m": {
+          "type": "number"
+        },
+        "local_radius_m": {
+          "type": "number"
+        }
+      }
+    },
+    "seeds": {
+      "type": "object",
+      "required": [
+        "formal",
+        "calibration",
+        "acceptance",
+        "pilot"
+      ],
+      "properties": {
+        "formal": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "calibration": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "acceptance": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "pilot": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "loads": {
+      "type": "object",
+      "required": [
+        "low",
+        "high"
+      ],
+      "properties": {
+        "low": {
+          "type": "object",
+          "required": [
+            "density_per_km_lane"
+          ],
+          "properties": {
+            "density_per_km_lane": {
+              "anyOf": [
+                {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          }
+        },
+        "high": {
+          "type": "object",
+          "required": [
+            "density_per_km_lane"
+          ],
+          "properties": {
+            "density_per_km_lane": {
+              "anyOf": [
+                {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "calibration": {
+      "type": "object",
+      "required": [
+        "initial_densities",
+        "additional_densities",
+        "warmups_s",
+        "low_max",
+        "high_min",
+        "high_max",
+        "max_prewindow_drift",
+        "max_longwindow_drift",
+        "max_smoothed_span",
+        "max_supply_drift",
+        "feedback_exposure_min"
+      ],
+      "properties": {
+        "initial_densities": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "number"
+          }
+        },
+        "additional_densities": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "number"
+          }
+        },
+        "warmups_s": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "number"
+          }
+        },
+        "low_max": {
+          "type": "number"
+        },
+        "high_min": {
+          "type": "number"
+        },
+        "high_max": {
+          "type": "number"
+        },
+        "max_prewindow_drift": {
+          "type": "number"
+        },
+        "max_longwindow_drift": {
+          "type": "number"
+        },
+        "max_smoothed_span": {
+          "type": "number"
+        },
+        "max_supply_drift": {
+          "type": "number"
+        },
+        "feedback_exposure_min": {
+          "type": "number"
+        }
+      }
+    },
+    "scenarios": {
+      "type": "object",
+      "required": [
+        "S0",
+        "S1",
+        "S2",
+        "E0"
+      ],
+      "properties": {
+        "S0": {
+          "type": "object",
+          "required": [
+            "target_pairs",
+            "events",
+            "prior"
+          ],
+          "properties": {
+            "target_pairs": {
+              "type": "number"
+            },
+            "events": {
+              "type": "number"
+            },
+            "prior": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "S1": {
+          "type": "object",
+          "required": [
+            "target_pairs",
+            "events",
+            "prior"
+          ],
+          "properties": {
+            "target_pairs": {
+              "type": "number"
+            },
+            "events": {
+              "type": "number"
+            },
+            "prior": {}
+          }
+        },
+        "S2": {
+          "type": "object",
+          "required": [
+            "target_pairs",
+            "events",
+            "prior"
+          ],
+          "properties": {
+            "target_pairs": {
+              "type": "number"
+            },
+            "events": {
+              "type": "number"
+            },
+            "prior": {}
+          }
+        },
+        "E0": {
+          "type": "object",
+          "required": [
+            "target_pairs",
+            "events",
+            "prior"
+          ],
+          "properties": {
+            "target_pairs": {
+              "type": "number"
+            },
+            "events": {
+              "type": "number"
+            },
+            "prior": {}
+          }
+        }
+      }
+    },
+    "rng": {
+      "type": "object",
+      "required": [
+        "traffic",
+        "initial_phase",
+        "jitter",
+        "mac"
+      ],
+      "properties": {
+        "traffic": {
+          "type": "string",
+          "minLength": 1
+        },
+        "initial_phase": {
+          "type": "string",
+          "minLength": 1
+        },
+        "jitter": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mac": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "p3_evidence": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "required": [
+            "path",
+            "sha256"
+          ],
+          "properties": {
+            "path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[A-Fa-f0-9]{64}$"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TABR experiment configuration",
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "stage": {
+            "const": "frozen"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "p3_evidence": {
+            "type": "object"
+          },
+          "loads": {
+            "properties": {
+              "low": {
+                "properties": {
+                  "density_per_km_lane": {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  }
+                }
+              },
+              "high": {
+                "properties": {
+                  "density_per_km_lane": {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

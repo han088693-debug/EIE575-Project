@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<routes>
+    <!-- Two-vehicle smoke scenario, not a calibrated congestion experiment. -->
+    <vType id="target" accel="2.6" decel="6.0" emergencyDecel="9.0"
+           sigma="0.0" tau="1.0" length="5.0" minGap="2.5"
+           maxSpeed="22.2222" speedFactor="1.0" speedDev="0.0"
+           laneChangeModel="LC2013"/>
+    <route id="straight" edges="highway"/>
+    <!-- Front-bumper separation 30 m gives a 25 m net gap for 5 m cars. -->
+    <vehicle id="lead" type="target" route="straight" depart="0"
+             departLane="0" departPos="70" departSpeed="22.2222"
+             color="1,0.2,0.2"/>
+    <vehicle id="follow" type="target" route="straight" depart="0"
+             departLane="0" departPos="40" departSpeed="22.2222"
+             color="0.2,0.4,1"/>
+</routes>

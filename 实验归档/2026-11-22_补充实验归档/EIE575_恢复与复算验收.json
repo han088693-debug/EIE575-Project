@@ -1,0 +1,167 @@
+{
+  "passed": true,
+  "archive_sha256": "53fdc62a8dbe046fd8190226dcf60e0f99f140453b49ffb01a488cb7b771a731",
+  "pdf_sha256": "c8445bb7ed40a1f7d80d37b99febeea2810990f32b4b6a120becec00cdb93a72",
+  "reproduced_tables": {
+    "gaps": {
+      "density_scheme.csv": "ba9d4b42ad790daf56bad682fe88fca064a6b82a9a4c2108438ec2306bf29a8f",
+      "density_summary.csv": "be7043549eb83d616b8e06b5ef67842305b6bf1b69d380e5e145060e0076e5e1",
+      "longest_cases.csv": "279d18c1b7b0dcce017ddf10d5b8d7be42016a3d09850442bf03b40b46dea640",
+      "longest_packet_audit.csv": "3b83e1143aa681fb96e16bd06b20f8c29dd9d8aad792b5137d09d6708153bc18",
+      "pair_gaps.csv": "70b65bcb1db64267794a5cf5fc7cfe71113fdfc63dd7f3c77cb9d54f612f586a",
+      "run_gaps.csv": "98937ef860062c730d92f5ddf9d25ed2db6b2d85dc33be2e2b56375432b123f7"
+    },
+    "fixed": {
+      "fixed_target_paired.csv": "60cb411e6eb1ad2eeffc69c713b7e4f6eb8314eff5fbb3567c73e5b55c6169b6",
+      "fixed_target_runs.csv": "a4e8a3987a6a92ef76d3d5f326b7bc17b72fcaf58ab9534df6603cf66083ee3e"
+    },
+    "mild": {
+      "mild_paired.csv": "0c0d183302a058524a61e21b2922b54b355a035bae7f79a9f900391c39118125",
+      "mild_runs.csv": "e7c79e4d2c8838f08c35df55ccbb206005cbe1fe080c4844167ebdf8b153ec0c",
+      "mild_summary.csv": "5eba4454134f463f66bae439b756da87fb53cb4a0c8d34d73481fdbd3b59a918"
+    }
+  },
+  "regenerated_pdf_byte_identical": true,
+  "outer_files": 55,
+  "supplemental_runs": {
+    "mild_new": 20,
+    "fixed_new": 4,
+    "sparse_reanalyzed": 16
+  },
+  "restore": {
+    "destination": "E:\\Temp\\eqofryo4lw\\r",
+    "studies": {
+      "mild": {
+        "archive": "E:\\Temp\\eqofryo4lw\\k\\components\\mild20.zip",
+        "archive_sha256": "fb4a816eb9ab2275ea3abbf746f09bca608a875521a8e027fbc82800e256ea67",
+        "archive_bytes": 199401669,
+        "files": 1356,
+        "directories": 328,
+        "uncompressed_bytes": 2066730958,
+        "verified_project": "E:\\Temp\\eqofryo4lw\\r\\e5m"
+      },
+      "fixed": {
+        "archive": "E:\\Temp\\eqofryo4lw\\k\\components\\fixed4.zip",
+        "archive_sha256": "181a33b031b485115a87e5ed7619b7be4fbf38979ca9b8d53a4713abc8dd46cd",
+        "archive_bytes": 17669547,
+        "files": 478,
+        "directories": 92,
+        "uncompressed_bytes": 170272376,
+        "verified_project": "E:\\Temp\\eqofryo4lw\\r\\e5f"
+      },
+      "sparse": {
+        "archive": "E:\\Temp\\eqofryo4lw\\k\\components\\sparse16.zip",
+        "archive_sha256": "64441495e389697cc8b3f562ab6cbfe89fd69ebcb394d50a22bf5f03b0584b28",
+        "archive_bytes": 64305901,
+        "files": 976,
+        "directories": 252,
+        "uncompressed_bytes": 638724638,
+        "verified_project": "E:\\Temp\\eqofryo4lw\\r\\e575x"
+      },
+      "main": {
+        "base_and_start": {
+          "valid": true,
+          "base_files_verified": 2105,
+          "delta_files_verified": 131,
+          "base_sha256": "4daf9bf12ff12b6e16180e1aae5a3a0340fb184bca4181f13763e1f418559e7e",
+          "delta_sha256": "a49140b285bafdb768a24a49a754d45d1682bdd7734d336886604e22235df8ce",
+          "project": "E:\\Temp\\eqofryo4lw\\r\\main",
+          "campaign_key": "25b91db7079611825931499d31acabd8602e974b00ed2a1bef0f97ec23c0d675",
+          "recomputed_raw_measurement_seeds": [
+            100,
+            101
+          ],
+          "decision": "initial_runs_required",
+          "next_runs": [
+            {
+              "density_per_lane_km": 15,
+              "warmup_s": 20,
+              "seed": 100,
+              "scenario": "E0",
+              "scheme": "G0"
+            },
+            {
+              "density_per_lane_km": 15,
+              "warmup_s": 20,
+              "seed": 101,
+              "scenario": "E0",
+              "scheme": "G0"
+            },
+            {
+              "density_per_lane_km": 30,
+              "warmup_s": 20,
+              "seed": 100,
+              "scenario": "E0",
+              "scheme": "G0"
+            },
+            {
+              "density_per_lane_km": 30,
+              "warmup_s": 20,
+              "seed": 101,
+              "scenario": "E0",
+              "scheme": "G0"
+            }
+          ],
+          "simulation_launched": false,
+          "verified_attempt_directories": [
+            "E:\\Temp\\eqofryo4lw\\r\\main\\results\\probes\\p3e0_25b91db7079611_d5_w20_s100\\e7a8c52566094b3a02\\results\\engineering\\tabr_core_v1\\E0\\candidate\\G0\\seed100\\attempt-20261122T074302570298Z-6136c8e62d59",
+            "E:\\Temp\\eqofryo4lw\\r\\main\\results\\probes\\p3e0_25b91db7079611_d5_w20_s101\\e3f0e051b246cf3a01\\results\\engineering\\tabr_core_v1\\E0\\candidate\\G0\\seed101\\attempt-20261122T074433884139Z-94db70a25fb2"
+          ]
+        },
+        "delta_files": 119,
+        "accepted_runs": [
+          {
+            "request_id": "e7a8c52566094b3a02",
+            "attempt": "results/probes/p3e0_25b91db7079611_d5_w20_s100/e7a8c52566094b3a02/results/engineering/tabr_core_v1/E0/candidate/G0/seed100/attempt-20261122T074302570298Z-6136c8e62d59",
+            "job": [
+              5,
+              20,
+              100
+            ],
+            "raw_files_verified": 44
+          },
+          {
+            "request_id": "e3f0e051b246cf3a01",
+            "attempt": "results/probes/p3e0_25b91db7079611_d5_w20_s101/e3f0e051b246cf3a01/results/engineering/tabr_core_v1/E0/candidate/G0/seed101/attempt-20261122T074433884139Z-94db70a25fb2",
+            "job": [
+              5,
+              20,
+              101
+            ],
+            "raw_files_verified": 44
+          },
+          {
+            "request_id": "e163618ba08e215a01",
+            "attempt": "results/probes/p3e0_25b91db7079611_d15_w20_s100/e163618ba08e215a01/results/engineering/tabr_core_v1/E0/candidate/G0/seed100/attempt-20261122T074605306938Z-de1eec21da4e",
+            "job": [
+              15,
+              20,
+              100
+            ],
+            "raw_files_verified": 44
+          },
+          {
+            "request_id": "e8798344aad4f2ca01",
+            "attempt": "results/probes/p3e0_25b91db7079611_d15_w20_s101/e8798344aad4f2ca01/results/engineering/tabr_core_v1/E0/candidate/G0/seed101/attempt-20261122T075747786616Z-60241f979b47",
+            "job": [
+              15,
+              20,
+              101
+            ],
+            "raw_files_verified": 44
+          }
+        ],
+        "historical_index": "main/checkpoint_delta/campaign_index_snapshot.json",
+        "automatic_resume": false
+      }
+    },
+    "simulation_launched": false,
+    "automatic_resume": false,
+    "ancillary_project_files": {
+      "e5report": 10,
+      "e5gap": 10
+    },
+    "analysis_project_files": 10
+  },
+  "simulation_started": false
+}

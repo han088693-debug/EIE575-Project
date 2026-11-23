@@ -1,0 +1,18 @@
+{
+  "history_type": "engineering_stop_before_new_authorization",
+  "science_complete": false,
+  "captured_utc": "2026-11-23T11:11:18.319337+00:00",
+  "accepted": 10,
+  "requests": 16,
+  "raw_files": 696,
+  "raw_bytes": 4327995848,
+  "raw_index_sha256": "0a4b919bc4cb260a2e27a4c51e3d9f7d3dcede40ee5ee2057c66ea8617ba42e5",
+  "independently_verified_after_extraction": 94,
+  "sha256": {
+    "E0_v1_工程阻塞证据.zip": "d4f562f982ebb2a8c641ac394cb37fc4a362b5220019b7f9ad952ade62d8988e",
+    "README_历史边界.md": "833270e4d4519a335b9fa30df58121d4edbf1300829a5756d10240acb4aeac13",
+    "E0_校准结论.md": "d0e8c3dd3bef00984be1f2d41b1ac2d4ec0f3e5ab36adaacb72bfa6d4f197f35",
+    "candidate_decisions.csv": "d16b5ca7c7d5ad984c78b635f891f9856d69a97d44cbb3a4a094bbab44b17ab0",
+    "density_cbr.png": "2a422a409ca0d7f07a8e7ff90a41266a3d46fb06d430a3804ffada639112ae45"
+  }
+}

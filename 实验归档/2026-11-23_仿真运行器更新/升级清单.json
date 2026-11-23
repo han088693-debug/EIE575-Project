@@ -1,0 +1,116 @@
+{
+  "format": "eie575-forward-runner-v1",
+  "component_patches": {
+    "live-wall-budget.patch": "e6b0361bfa2e7f86b5975c070d5f73596d9ba02b2862ac24696cf0b1e0715e49",
+    "formal-plan-gate.patch": "ba082aacaba9ff962820d0344ce2d22e1183cce72ddd4f04a929110a979f32ea"
+  },
+  "files": {
+    "configs/e0_serial_benchmarks.json": {
+      "before": null,
+      "after": "5f95f84e1bb041ce78f4e5e2a7633180303ab4250f9e2a3a959c82780321df20"
+    },
+    "docs/wall_budget.md": {
+      "before": null,
+      "after": "b9ba2a9368b5e02ad08abc796f5fb8ae500b69169891d02059caab9853c89cd0"
+    },
+    "tests/test_experiment.py": {
+      "before": "d5350f98b71078ab9f3f3fc379f062ab0a23b6062c9ad9c5bf07ece2f1cd6353",
+      "after": "33967e66c0d3f3f7a7faaa8bee5b62ee64a64ddfd01e8ebf10e0e2913290a0e7"
+    },
+    "tests/test_initial_wall_budget.py": {
+      "before": null,
+      "after": "0c5705caf7b192d942a479c45d40918aeebeb5cfcb9e023390c6e23ca2fca62c"
+    },
+    "tests/test_wall_budget.py": {
+      "before": null,
+      "after": "c98f5883d3312e868d14abf40ae46694581b164f952d7b2a43e200cab43e4e60"
+    },
+    "tools/e0_budget_benchmarks.py": {
+      "before": null,
+      "after": "17a57b8b3fe28d6ead0125e19bc029556f0253b7e2c6b0100a33a0cbbcbb3ebf"
+    },
+    "tools/experiment.py": {
+      "before": "f3ded3688d85f43798c6a32f65dd04c762c0631cbe52e520f6ac6c80e493e41c",
+      "after": "5f025adc93b298d5d8033561bc96bbd76bd2863b66184482b78a111925ad7611"
+    },
+    "tools/formal_engine.py": {
+      "before": "f099ee67696fda997439d45fbcb72da2e5594ac2f78740cb804c581815b92c97",
+      "after": "08e543db3d4bf92b485e7d4c1fd6a0cfc01fc458c10a76a64bc38a039cc4bcbb"
+    },
+    "tools/formal_mcp.py": {
+      "before": "3d8fdd363014c3afa4e06a257995e383086118ea93862be5c7e026b4a4e7650a",
+      "after": "70133594ec123eb41a9a80f516a4d0723c09b308a4c2f4eae97032ec2dd0de1d"
+    },
+    "tools/initial_wall_budget.py": {
+      "before": null,
+      "after": "4bf8cf0ecdc1df0280923d5973413dcacd97d13de793431aac9647a640bb31ab"
+    },
+    "tools/wall_budget.py": {
+      "before": null,
+      "after": "b1f9245167b3d9f0e9653bc9af5f8cd36ad0dc40cd0b16be70e4ed0c790817c0"
+    }
+  },
+  "original_zip_sha256": "1fbfd6cbed3f134a9ca96afde3d1123c0ba9757108ac15b2c6c27287cdb2e232",
+  "payload_zip_sha256": "2f820e54af6483632bde2573cce81c210e9e64daab0c952a509597e7c83a4337",
+  "source_fingerprint_before": {
+    "EIE575_TABR_Starter.exe": "254f29cf5ea1bf4acf453d6f87cb2f34a2678a2894541e4d161e1a28dc61f84a",
+    "omnetpp.ini": "cb5ff41adc13700cc8d1acc75ead2681084647774bb563a8f4eb071ca4174921",
+    "radio.xml": "e054be6503cdaa60b6a23f24e8bf5114763b21cdef4b5cf93c54ee3be5f24b98",
+    "scenarios/highway.edg.xml": "b218ca1143fa186d04a7622c004c58b99703c474dd725bf79c2d08d3a42a48e1",
+    "scenarios/highway.nod.xml": "9352fa3cb07720789310680d7932b5bf1401e3430e437c8c95222ae2606bb09b",
+    "scenarios/s1.launchd.xml": "0502356480a2188f488c5d637e1d30767d9bbd5467834f8920c0a00972c47813",
+    "scenarios/s1.rou.xml": "f8b7c875e32579d38e6363dcc327557d722a3d9790f051f285b82aa7130b2609",
+    "scenarios/s1.sumo.cfg": "ec8a8e7fb5ed2977ac18e85018d872e7df6ddf071c8f037ccf239e52e76f91e6",
+    "src/BrakeScenario.cc": "4b066ead90a43e02ef6794e238cedb6d3a449dae880c6143f44270db9d254cee",
+    "src/BrakeScenario.h": "643894c3c998c9713e26db7fff08738c3f66e95f2d8d4f0e6ffa9b74cbccf930",
+    "src/BrakeScenario.ned": "3fc159b87f2ff3604421b7446666076339a40683631b8a6268ae5017d69b3b5e",
+    "src/FormalObservation.cc": "361250d6de01ffe84a17ceed9c2df8cf0b4c53bd8140ff686196d73520f5d915",
+    "src/FormalObservation.h": "ebfe2334164096b67e6cf67871f360e67826bdf8ea9559e60e2610818d7d4aaf",
+    "src/FormalScenario.cc": "4059807252da8dda160c5a6dcfddc72f55cad8c0b926dffde5b84f82a46d9d69",
+    "src/FormalScenario.h": "81081604bb662eb28fd28213d673ad13664a5b1e653f92ad7560c45bb3b5462b",
+    "src/package.ned": "3de44d8e420c55a8c2fe117ac3681e49de123a9c3557b6cd3be06e9d2022fc3d",
+    "src/ResearchHighway.ned": "f2f118431aeef3b8797d5f114e1d38c92a604febfebf289102c98f37eca72dd8",
+    "src/TabrApp.cc": "eda21f5c21485342852fd0df7c5f69dd2da5134640d3d1d4273efbf6b13709ce",
+    "src/TabrApp.h": "b8a19f4a138eac84fc59c07c6c36a5ce5ff18600f2f2a0240804d00734069f78",
+    "src/TabrApp.ned": "a7f1cf0ea828255f90042721eabeba80832a08a4cdd09bed9ec9b28aec7fe718",
+    "src/TabrBeacon.msg": "794b5a5106857faf280f87bcf6785a4dc785ee5c4af5ba66255624cbc649a563",
+    "src/TabrBeacon_m.cc": "4fa669a40b74ff9b126a3135d1c1fba7bf7cabc16d2d8f9f8cb0a25fb7cdf157",
+    "src/TabrBeacon_m.h": "94ea264290c2aa51e86a278ac8d827b270ce210b0c2487bcff792bafabcbdc1c",
+    "src/TabrCore.h": "7a35288799ff76b74731717607ef94cd49702dccc399784d2c95295a46317061",
+    "tools/formal_engine.py": "f099ee67696fda997439d45fbcb72da2e5594ac2f78740cb804c581815b92c97",
+    "tools/formal_scenario.py": "caa830148c6e3ad624c91c7a59ca2da746940d71de37cb3665f1bda0c96e8fac",
+    "tools/manage.py": "a3e80c26a9ac2734379995c57a763bbbb70b1f19f65ca28bbe357b1ced35851d"
+  },
+  "source_fingerprint_after": {
+    "EIE575_TABR_Starter.exe": "254f29cf5ea1bf4acf453d6f87cb2f34a2678a2894541e4d161e1a28dc61f84a",
+    "omnetpp.ini": "cb5ff41adc13700cc8d1acc75ead2681084647774bb563a8f4eb071ca4174921",
+    "radio.xml": "e054be6503cdaa60b6a23f24e8bf5114763b21cdef4b5cf93c54ee3be5f24b98",
+    "scenarios/highway.edg.xml": "b218ca1143fa186d04a7622c004c58b99703c474dd725bf79c2d08d3a42a48e1",
+    "scenarios/highway.nod.xml": "9352fa3cb07720789310680d7932b5bf1401e3430e437c8c95222ae2606bb09b",
+    "scenarios/s1.launchd.xml": "0502356480a2188f488c5d637e1d30767d9bbd5467834f8920c0a00972c47813",
+    "scenarios/s1.rou.xml": "f8b7c875e32579d38e6363dcc327557d722a3d9790f051f285b82aa7130b2609",
+    "scenarios/s1.sumo.cfg": "ec8a8e7fb5ed2977ac18e85018d872e7df6ddf071c8f037ccf239e52e76f91e6",
+    "src/BrakeScenario.cc": "4b066ead90a43e02ef6794e238cedb6d3a449dae880c6143f44270db9d254cee",
+    "src/BrakeScenario.h": "643894c3c998c9713e26db7fff08738c3f66e95f2d8d4f0e6ffa9b74cbccf930",
+    "src/BrakeScenario.ned": "3fc159b87f2ff3604421b7446666076339a40683631b8a6268ae5017d69b3b5e",
+    "src/FormalObservation.cc": "361250d6de01ffe84a17ceed9c2df8cf0b4c53bd8140ff686196d73520f5d915",
+    "src/FormalObservation.h": "ebfe2334164096b67e6cf67871f360e67826bdf8ea9559e60e2610818d7d4aaf",
+    "src/FormalScenario.cc": "4059807252da8dda160c5a6dcfddc72f55cad8c0b926dffde5b84f82a46d9d69",
+    "src/FormalScenario.h": "81081604bb662eb28fd28213d673ad13664a5b1e653f92ad7560c45bb3b5462b",
+    "src/package.ned": "3de44d8e420c55a8c2fe117ac3681e49de123a9c3557b6cd3be06e9d2022fc3d",
+    "src/ResearchHighway.ned": "f2f118431aeef3b8797d5f114e1d38c92a604febfebf289102c98f37eca72dd8",
+    "src/TabrApp.cc": "eda21f5c21485342852fd0df7c5f69dd2da5134640d3d1d4273efbf6b13709ce",
+    "src/TabrApp.h": "b8a19f4a138eac84fc59c07c6c36a5ce5ff18600f2f2a0240804d00734069f78",
+    "src/TabrApp.ned": "a7f1cf0ea828255f90042721eabeba80832a08a4cdd09bed9ec9b28aec7fe718",
+    "src/TabrBeacon.msg": "794b5a5106857faf280f87bcf6785a4dc785ee5c4af5ba66255624cbc649a563",
+    "src/TabrBeacon_m.cc": "4fa669a40b74ff9b126a3135d1c1fba7bf7cabc16d2d8f9f8cb0a25fb7cdf157",
+    "src/TabrBeacon_m.h": "94ea264290c2aa51e86a278ac8d827b270ce210b0c2487bcff792bafabcbdc1c",
+    "src/TabrCore.h": "7a35288799ff76b74731717607ef94cd49702dccc399784d2c95295a46317061",
+    "tools/formal_engine.py": "08e543db3d4bf92b485e7d4c1fd6a0cfc01fc458c10a76a64bc38a039cc4bcbb",
+    "tools/formal_scenario.py": "caa830148c6e3ad624c91c7a59ca2da746940d71de37cb3665f1bda0c96e8fac",
+    "tools/manage.py": "a3e80c26a9ac2734379995c57a763bbbb70b1f19f65ca28bbe357b1ced35851d",
+    "tools/timeout_recovery.py": "cf9b75ae59ddf8679a4a9cc3dc8617ced90742df804ee4d9e29f94d08f153138",
+    "tools/wall_budget.py": "b1f9245167b3d9f0e9653bc9af5f8cd36ad0dc40cd0b16be70e4ed0c790817c0"
+  },
+  "simulator_sha256": "254f29cf5ea1bf4acf453d6f87cb2f34a2678a2894541e4d161e1a28dc61f84a"
+}
