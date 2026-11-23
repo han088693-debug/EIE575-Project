@@ -181,11 +181,30 @@ void sendTiming()
 }
 }
 
+void warmupGate()
+{
+    expect(!tabr::controlActive(0.1, 20.0, true), "gate closed before warmup");
+    expect(tabr::controlActive(20.0, 20.0, true), "gate opens at warmup");
+    expect(tabr::controlActive(59.9, 20.0, true), "gate open after warmup");
+    expect(!tabr::controlActive(59.9, 20.0, false), "gate closed without valid estimate");
+
+    double base = 2;
+    for (double t = 0.1; t < 20.0; t += 0.1) {
+        if (tabr::controlActive(t, 20.0, true))
+            base = tabr::updateBase(base, 0.0, 0.43, 0.03, 0.5, 1.0 / 3, 10);
+    }
+    near(base, 2, "base held through warmup despite zero CBR");
+    if (tabr::controlActive(20.1, 20.0, true))
+        base = tabr::updateBase(base, 0.408, 0.43, 0.03, 0.5, 1.0 / 3, 10);
+    near(base, 2, "base held when measured CBR sits inside the deadband");
+}
+
 int main()
 {
     busyWindows();
     motionHistory();
     controller();
+    warmupGate();
     sendTiming();
     std::cout << (failures ? "FAIL" : "PASS") << ": " << checks << " checks, " << failures << " failures\n";
     return failures ? 1 : 0;

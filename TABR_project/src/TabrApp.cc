@@ -188,7 +188,9 @@ void TabrApp::control()
     C = clip(busyDuration / (now - windowStart), 0, 1);
     Cbar = smoothed ? smoothOld * Cbar + (1 - smoothOld) * C : C;
     smoothed = true;
-    base = updateBase(base, Cbar, target, deadband, eta, rMin / (1 + beta), rMax);
+    if (controlActive(now, warmup.dbl(), smoothed)) {
+        base = updateBase(base, Cbar, target, deadband, eta, rMin / (1 + beta), rMax);
+    }
     W = weight(scheme, brake, S, speed, speedReference, beta);
     U = beta > 0 ? (W - 1) / beta : 0;
     rate = clip(base * W, rMin, rMax);

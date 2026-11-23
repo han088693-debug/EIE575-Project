@@ -1,0 +1,19 @@
+out/
+generated/
+Makefile
+*.exe
+*.dll
+*_m.cc
+*_m.h
+*.pyc
+__pycache__/
+tests/.build/
+tests/build/
+build.log
+
+# 原始运行输出体积达数 GB：只保留 calibration 的判定与测量，probes 原始日志留在本机
+results/probes/
+results/batches/
+
+# 监督器的运行期状态（每次 attempt 的预算账本），不入库
+verification/wall_runtime/

@@ -118,13 +118,20 @@ class FormalStateTests(unittest.TestCase):
                 previous = ctl["b_initial_hz"]
                 count = 0
                 for row in rows(archive/scheme/f"control_log_{v}.csv", "W r b Cbar"):
-                    previous = audit_controller(row, scheme, ctl, float(row["Cbar"]), previous)
+                    # Archived logs predate the warmup gate: replay them with warmup=0.
+                    previous = audit_controller(row, scheme, ctl, float(row["Cbar"]), previous, 0.0)
                     count += 1
                 self.assertEqual(count,299)
         last = dict(row)
         last["W"] = "2.9"
         with self.assertRaisesRegex(ValueError,"controller W"):
-            audit_controller(last,"G3",ctl,float(last["Cbar"]),previous)
+            audit_controller(last,"G3",ctl,float(last["Cbar"]),previous,0.0)
+        gated = dict(last)
+        gated["W"] = row["W"]
+        gated["tick_time"] = "10.0"
+        self.assertEqual(
+            audit_controller(gated,"G3",ctl,float(last["Cbar"]),float(last["b"]),20.0),
+            float(last["b"]), "no integration before warmup")
         clock=Clock(cfg["timing"])
         with tempfile.TemporaryDirectory() as d:
             logs=Path(d)
@@ -175,6 +182,7 @@ class FormalStateTests(unittest.TestCase):
     def test_real_terminal_timer_requires_its_own_normal_trip_evidence(self):
         cfg = json.loads((ROOT/"configs/core.json").read_text(encoding="utf-8-sig"))
         cfg.update(scheme="G0", data_origin="simulation")
+        cfg["timing"]["warmup_s"] = 0  # fixture predates the warmup gate
         clock = Clock(cfg["timing"])
         tick = clock.tick
         with tempfile.TemporaryDirectory() as d:

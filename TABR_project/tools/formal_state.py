@@ -290,7 +290,7 @@ class BusyAudit:
         return delta
 
 
-def audit_controller(row, scheme, ctl, filtered, previous_base):
+def audit_controller(row, scheme, ctl, filtered, previous_base, warmup):
     """Check the implementation's registered feedback/weight equations, per update."""
     def clip(x, lo, hi):
         return min(hi, max(lo, x))
@@ -315,7 +315,8 @@ def audit_controller(row, scheme, ctl, filtered, previous_base):
     # Match updateBase's roundoff allowance at the exact deadband edge.
     feedback_error = ctl["cbr_target"]-filtered
     b = previous_base
-    if abs(feedback_error) > ctl["deadband"]+1e-12:
+    # Mirror the controller's warmup gate: no integration before the estimate is usable.
+    if number(row["tick_time"]) + 1e-12 >= warmup and abs(feedback_error) > ctl["deadband"]+1e-12:
         b = clip(b+ctl["feedback_gain"]*feedback_error, ctl["b_min_hz"], ctl["b_max_hz"])
     expected = {"S":(score,expected_score), "U":(urgency,(w-1)/beta if beta else 0),
                 "b":(base,b), "W":(weight,w), "r":(rate,clip(b*w,ctl["r_min_hz"],ctl["r_max_hz"]))}
@@ -369,7 +370,8 @@ def aggregate_controls(logs, clock, cfg, life, tracked, window, step, smoothing)
                 prev_cbar[v] = filtered
                 if real:
                     previous_b[v] = audit_controller(row, cfg["scheme"], c, filtered,
-                                                     previous_b.get(v, c["b_initial_hz"]))
+                                                     previous_b.get(v, c["b_initial_hz"]),
+                                                     cfg["timing"]["warmup_s"])
                     formula_count += 1
                 audit.advance(t)
                 if life[v][4]:

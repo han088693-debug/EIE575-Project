@@ -111,6 +111,13 @@ inline double updateBase(double base, double cbar, double target, double deadban
     return std::abs(error) <= deadband + 1e-12 ? base : clip(base + eta * error, minimum, maximum);
 }
 
+// 控制律只允许在“估计量已有效且已过预热”后积分；否则预热期的 CBR 估计
+// 接近 0，会被当成真实欠载而把 base 推到上限（启动饱和）。
+inline bool controlActive(double now, double warmup, bool estimateValid)
+{
+    return estimateValid && now + 1e-12 >= warmup;
+}
+
 inline double sendInterval(double rate, double jitter, double minimumRate, double maximumRate)
 {
     return clip(jitter / rate, 1.0 / maximumRate, 1.0 / minimumRate);
