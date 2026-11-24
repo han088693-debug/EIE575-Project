@@ -11,7 +11,7 @@
   <text x="392" y="398" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#6B7C8F">CBR 在 d=15 与 d=33 都稳到 0.16 附近。</text>
 
   <rect x="56" y="404" width="848" height="60" rx="8" fill="#FDF3E3"/>
-  <text x="80" y="430" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#8A5A09">实测锚点：b≈2.35 Hz 时 CBR 0.12；b=10 Hz 时 CBR 0.41（d=30）。斜率约 0.04 / Hz。</text>
+  <text x="80" y="430" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#8A5A09">d=33 四点同线，拟合 0.037 / Hz；d=30 的 10 Hz 锚点 0.41；同为 10 Hz，d=5 只有 0.083。</text>
   <text x="80" y="452" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#8A5A09">这直接解释了：要把 b 降下来才有区分度，但 b 一降，信道就空了。</text>
 
   <text x="56" y="512" font-family="Segoe UI, sans-serif" font-size="10.5" fill="#8A99A8">EIE575 Group 3 · TABR</text>

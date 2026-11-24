@@ -11,7 +11,7 @@
   <text x="392" y="398" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#6B7C8F">d=33 → 3.36 Hz; d=15/33 both settle near CBR 0.16.</text>
 
   <rect x="56" y="404" width="848" height="60" rx="8" fill="#FDF3E3"/>
-  <text x="80" y="430" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#8A5A09">Anchors: b≈2.35 Hz → CBR 0.12; b=10 Hz → CBR 0.41 (d=30). Slope ≈ 0.04 / Hz.</text>
+  <text x="80" y="430" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#8A5A09">Four d = 33 points on one line, fit 0.037 / Hz; d = 30 anchor 0.41; at the same 10 Hz, d = 5 gives 0.083.</text>
   <text x="80" y="452" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#8A5A09">So lowering b buys separation — but lowering b also empties the channel.</text>
 
   <text x="56" y="512" font-family="Segoe UI, sans-serif" font-size="10.5" fill="#8A99A8">EIE575 Group 3 · TABR</text>
