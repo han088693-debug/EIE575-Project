@@ -35,8 +35,9 @@
   <text x="532" y="352" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#6B7C8F">死区内保持 b；发送定时器不追赶积压包，</text>
   <text x="532" y="372" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#6B7C8F">调率后只安排一次最近可行发送。</text>
 
-  <rect x="56" y="406" width="848" height="58" rx="8" fill="#E7F1F2"/>
-  <text x="80" y="441" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#0E7C86">关键约束：r_max = 10 Hz。当基础速率被拥塞压到上限时，W &gt; 1 会被截平，四组行为一致。</text>
+  <rect x="56" y="402" width="848" height="68" rx="8" fill="#E7F1F2"/>
+  <text x="80" y="430" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#0E7C86">关键约束：r_max = 10 Hz。当基础速率被拥塞压到上限时，W &gt; 1 会被截平，四组行为一致。</text>
+  <text x="80" y="452" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#0E7C86">β 扫描（n=1）：β ≥ 1 时延即到底（检测后 0.5 ms）；有效倍率上限 β ≤ r_max/b − 1。</text>
 
   <text x="56" y="512" font-family="Segoe UI, sans-serif" font-size="10.5" fill="#8A99A8">EIE575 Group 3 · TABR</text>
   <text x="904" y="512" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="10.5" fill="#8A99A8">3 / 10</text>
