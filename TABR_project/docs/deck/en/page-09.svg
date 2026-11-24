@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+  <rect width="960" height="540" fill="#F5F7FA"/>
+  <text x="56" y="76" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="26" font-weight="700" fill="#10233F">v4: the G2 gain survives congestion</text>
+  <text x="56" y="106" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="13" fill="#6B7C8F">Background fixed at 10 Hz, only targets controlled: first time real congestion and 3× separation together</text>
+
+  <rect x="56" y="134" width="420" height="212" rx="8" fill="#FFFFFF" stroke="#D8E0E8"/>
+  <text x="78" y="164" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="13" font-weight="700" fill="#0E7C86">Setup</text>
+  <text x="78" y="192" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#33475B">· background: W=1, fixed 10 Hz, no feedback</text>
+  <text x="78" y="216" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#33475B">· targets: same control law and gate</text>
+  <text x="78" y="240" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#33475B">· cbr_target = 0.42, so target b is not crushed</text>
+  <text x="78" y="264" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#33475B">· validator mirrors the fixed-rate rule</text>
+  <text x="78" y="296" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="11.5" fill="#6B7C8F">New backgroundRateHz parameter;</text>
+  <text x="78" y="316" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="11.5" fill="#6B7C8F">C++ 776 checks / Python 7 passed.</text>
+
+  <rect x="500" y="134" width="404" height="212" rx="8" fill="#FFFFFF" stroke="#D8E0E8"/>
+  <text x="522" y="164" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="13" font-weight="700" fill="#0E7C86">Measured (S1, 6 runs: G0/G2 × 3 seeds)</text>
+  <text x="522" y="194" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#33475B">CBR 0.423 · delivery 95.7–96.1%</text>
+  <text x="522" y="220" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#33475B">event-window rate G0 2.34 Hz / G2 7.02 Hz</text>
+  <line x1="522" y1="238" x2="882" y2="238" stroke="#E4EAF0"/>
+  <text x="522" y="268" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="13" fill="#6B7C8F">G0</text>
+  <text x="620" y="268" font-family="Segoe UI, sans-serif" font-size="22" font-weight="700" fill="#10233F">244.8 ms</text>
+  <text x="522" y="302" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="13" fill="#0E7C86">G2</text>
+  <text x="620" y="302" font-family="Segoe UI, sans-serif" font-size="22" font-weight="700" fill="#0E7C86">116.6 ms</text>
+  <text x="522" y="330" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="11.5" fill="#6B7C8F">D_info at event onset; sends nearly identical (+0.002%)</text>
+
+  <rect x="56" y="366" width="848" height="86" rx="8" fill="#E7F1F2"/>
+  <text x="80" y="394" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="13" font-weight="700" fill="#0E7C86">Per seed (event onset, ms)</text>
+  <text x="80" y="420" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#33475B">G0: 434.2 / 123.6 / 176.5 · G2: 148.9 / 100.6 / 100.4 → mean −52%, all within 0.8 s</text>
+  <text x="80" y="442" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#6B7C8F">Delivery drops 99% → 96%: background load forces real loss; the gain remains — queueing + retransmission.</text>
+
+  <text x="56" y="512" font-family="Segoe UI, sans-serif" font-size="10.5" fill="#8A99A8">EIE575 Group 3 · TABR</text>
+  <text x="904" y="512" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="10.5" fill="#8A99A8">9 / 10</text>
+</svg>

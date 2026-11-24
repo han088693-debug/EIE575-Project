@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+  <rect width="960" height="540" fill="#F5F7FA"/>
+  <text x="56" y="76" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="26" font-weight="700" fill="#10233F">Structural limit: distinct and congested are exclusive</text>
+  <text x="56" y="106" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="13" fill="#6B7C8F">Not a tuning mistake — a property of all_vehicles_same_scheme</text>
+
+  <rect x="56" y="132" width="848" height="44" fill="#10233F"/>
+  <text x="76" y="160" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="13" font-weight="700" fill="#E8EEF5">Want</text>
+  <text x="330" y="160" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="13" font-weight="700" fill="#E8EEF5">State needed</text>
+  <text x="640" y="160" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="13" font-weight="700" fill="#E8EEF5">Side effect</text>
+
+  <rect x="56" y="176" width="848" height="78" fill="#FFFFFF" stroke="#E4EAF0"/>
+  <text x="76" y="208" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#33475B">Schemes differ (G0 ≠ G2)</text>
+  <text x="330" y="208" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#33475B">base parks at 2–4 Hz, W unclipped</text>
+  <text x="640" y="200" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#33475B">fleet beacon rate low → CBR 0.12–0.18</text>
+  <text x="640" y="222" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#33475B">channel idle, all schemes deliver on time</text>
+
+  <rect x="56" y="254" width="848" height="78" fill="#FFFFFF" stroke="#E4EAF0"/>
+  <text x="76" y="286" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#33475B">Channel under stress (timeouts/loss)</text>
+  <text x="330" y="286" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#33475B">fleet near 10 Hz</text>
+  <text x="640" y="278" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#33475B">base hits b_max, W clipped by r_max</text>
+  <text x="640" y="300" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#33475B">all four behave alike — no comparison</text>
+
+  <rect x="56" y="352" width="848" height="100" rx="8" fill="#E7F1F2"/>
+  <text x="80" y="380" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="13" font-weight="700" fill="#0E7C86">Why this is a contribution</text>
+  <text x="80" y="404" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#33475B">1. Explains the pre-matrix grid_exhausted: 50%–65% CBR is unreachable at buildable densities.</text>
+  <text x="80" y="424" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#33475B">2. Predicts the v3.2 shape: mechanism works (3× rate), but only delay differs, not timeouts.</text>
+  <text x="80" y="444" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#33475B">3. Gives the next design condition: decouple background load from controlled rate → v4.</text>
+
+  <text x="56" y="512" font-family="Segoe UI, sans-serif" font-size="10.5" fill="#8A99A8">EIE575 Group 3 · TABR</text>
+  <text x="904" y="512" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="10.5" fill="#8A99A8">8 / 10</text>
+</svg>

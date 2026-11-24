@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+  <rect width="960" height="540" fill="#F5F7FA"/>
+  <text x="56" y="76" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="26" font-weight="700" fill="#10233F">Conclusions and next steps</text>
+
+  <rect x="56" y="106" width="848" height="230" rx="8" fill="#FFFFFF" stroke="#D8E0E8"/>
+  <text x="80" y="136" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#0E7C86">Four conclusions</text>
+  <text x="80" y="166" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="11.5" fill="#33475B">1. G2 cuts delay 161.8 → 100.4 ms (−38%) and beats speed-weighted G1 (272.5 ms, +20% traffic); total sends stay flat.</text>
+  <text x="80" y="192" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="11.5" fill="#33475B">2. G3 adds nothing, provably: S∈[0,1], so under braking B=1 ⇒ max(B,S)=1 ⇒ W_G3 = W_G2. Keep the simpler G2.</text>
+  <text x="80" y="218" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="11.5" fill="#33475B">3. Under v4 fixed background (CBR 0.423, delivery 96%) the gain holds: G0 244.8 → G2 116.6 ms (−52%), sends flat.</text>
+  <text x="80" y="244" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="11.5" fill="#33475B">4. The structural limit is itself a result: under all_vehicles_same_scheme, distinct and congested are exclusive;</text>
+  <text x="104" y="266" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="11.5" fill="#33475B">it explains grid_exhausted and gives v4's decoupling condition.</text>
+  <text x="80" y="300" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="11" fill="#6B7C8F">Limits: 80 km/h, 250 B, single channel, single MAC priority; the 0.8 s deadline is loose, so the gain shows as delay, not timeouts.</text>
+
+  <rect x="56" y="352" width="848" height="128" rx="8" fill="#E7F1F2"/>
+  <text x="80" y="382" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#0E7C86">Next steps</text>
+  <text x="80" y="410" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="11.5" fill="#33475B">1. Design a non-braking continuous-speed-change scenario where the S term can act on its own (G3≡G2 is provable in braking).</text>
+  <text x="80" y="434" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="11.5" fill="#33475B">2. Tighten the deadline (e.g. 0.2 s) or raise background load to expose timeout differences.</text>
+  <text x="80" y="458" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="11.5" fill="#33475B">3. Multi-channel / multi-priority tests for robustness in a more realistic vehicular setting.</text>
+
+  <text x="56" y="512" font-family="Segoe UI, sans-serif" font-size="10.5" fill="#8A99A8">EIE575 Group 3 · TABR</text>
+  <text x="904" y="512" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="10.5" fill="#8A99A8">10 / 10</text>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+  <rect width="960" height="540" fill="#10233F"/>
+  <rect x="56" y="150" width="72" height="6" fill="#0E7C86"/>
+  <text x="56" y="246" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="76" font-weight="700" fill="#FFFFFF">TABR</text>
+  <text x="56" y="298" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="26" fill="#E8EEF5">Transient-Aware Beacon Rate Control for Sudden Braking</text>
+  <text x="56" y="334" font-family="Segoe UI, sans-serif" font-size="16" fill="#9FB3C8">See why congestion control delays the one message that matters most</text>
+  <line x1="56" y1="386" x2="904" y2="386" stroke="#2C4463" stroke-width="1"/>
+  <text x="56" y="424" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="14" fill="#9FB3C8">EIE575 Group Project · Group 3</text>
+  <text x="56" y="450" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="14" fill="#9FB3C8">OMNeT++ 5.6.2 · Veins 5.0 · SUMO 1.6.0 · IEEE 802.11p</text>
+  <text x="904" y="450" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="14" fill="#9FB3C8">2026-11-24</text>
+</svg>

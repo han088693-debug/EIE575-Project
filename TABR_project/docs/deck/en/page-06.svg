@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+  <rect width="960" height="540" fill="#F5F7FA"/>
+  <text x="56" y="76" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="26" font-weight="700" fill="#10233F">CBR is produced by the fleet itself</text>
+  <text x="56" y="106" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="13" fill="#6B7C8F">Deployment is all_vehicles_same_scheme: background cars run the same controller, so load is not exogenous</text>
+
+  <image x="56" y="132" width="300" height="222" href="../assets/fig2_cbr_vs_rate.png"/>
+
+  <image x="392" y="150" width="456" height="192" href="../assets/fig4_load_ladder.png"/>
+
+  <text x="392" y="378" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#6B7C8F">At target 0.18: d=5 caps at 10 Hz, d=15 → 6.70 Hz,</text>
+  <text x="392" y="398" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#6B7C8F">d=33 → 3.36 Hz; d=15/33 both settle near CBR 0.16.</text>
+
+  <rect x="56" y="404" width="848" height="60" rx="8" fill="#FDF3E3"/>
+  <text x="80" y="430" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#8A5A09">Anchors: b≈2.35 Hz → CBR 0.12; b=10 Hz → CBR 0.41 (d=30). Slope ≈ 0.04 / Hz.</text>
+  <text x="80" y="452" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#8A5A09">So lowering b buys separation — but lowering b also empties the channel.</text>
+
+  <text x="56" y="512" font-family="Segoe UI, sans-serif" font-size="10.5" fill="#8A99A8">EIE575 Group 3 · TABR</text>
+  <text x="904" y="512" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="10.5" fill="#8A99A8">6 / 10</text>
+</svg>

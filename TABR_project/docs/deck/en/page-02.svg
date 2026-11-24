@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+  <rect width="960" height="540" fill="#F5F7FA"/>
+  <text x="56" y="76" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="26" font-weight="700" fill="#10233F">Problem: congestion makes braking news late</text>
+  <text x="56" y="106" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="13" fill="#6B7C8F">Even when both cars are already in range, a fresh braking message still queues for a send slot</text>
+
+  <rect x="56" y="140" width="272" height="196" rx="8" fill="#FFFFFF" stroke="#D8E0E8"/>
+  <rect x="56" y="140" width="272" height="5" rx="2" fill="#0E7C86"/>
+  <text x="80" y="188" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="16" font-weight="700" fill="#10233F">Congestion control queues</text>
+  <text x="80" y="222" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#33475B">CBR feedback lowers the base rate,</text>
+  <text x="80" y="244" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#33475B">so a fresh hard brake may miss</text>
+  <text x="80" y="266" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#33475B">the next send opportunity.</text>
+
+  <rect x="344" y="140" width="272" height="196" rx="8" fill="#FFFFFF" stroke="#D8E0E8"/>
+  <rect x="344" y="140" width="272" height="5" rx="2" fill="#C2710C"/>
+  <text x="368" y="188" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="16" font-weight="700" fill="#10233F">Detection costs ~100 ms</text>
+  <text x="368" y="222" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#33475B">From true brake onset to the flag,</text>
+  <text x="368" y="244" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#33475B">all three schemes are identical;</text>
+  <text x="368" y="266" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#33475B">differences can only come later.</text>
+
+  <rect x="632" y="140" width="272" height="196" rx="8" fill="#FFFFFF" stroke="#D8E0E8"/>
+  <rect x="632" y="140" width="272" height="5" rx="2" fill="#5B3FA8"/>
+  <text x="656" y="188" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="16" font-weight="700" fill="#10233F">Three testable hypotheses</text>
+  <text x="656" y="222" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#33475B">H1 braking weight beats G0/G1</text>
+  <text x="656" y="244" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#33475B">H2 motion change adds value</text>
+  <text x="656" y="266" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#33475B">H3 stationary queue and platoons</text>
+
+  <rect x="56" y="368" width="848" height="72" rx="8" fill="#E7F1F2"/>
+  <text x="80" y="398" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#0E7C86">The question</text>
+  <text x="80" y="422" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#33475B">With real congestion yet still-distinct rates, can braking weight deliver the message sooner — and at what cost?</text>
+
+  <text x="56" y="512" font-family="Segoe UI, sans-serif" font-size="10.5" fill="#8A99A8">EIE575 Group 3 · TABR</text>
+  <text x="904" y="512" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="10.5" fill="#8A99A8">2 / 10</text>
+</svg>
