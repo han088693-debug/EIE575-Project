@@ -1,23 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
   <rect width="960" height="540" fill="#F5F7FA"/>
-  <text x="56" y="76" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="26" font-weight="700" fill="#10233F">S1 结果：G2 把等待压到检测极限</text>
-  <text x="56" y="106" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="13" fill="#6B7C8F">3 个种子 × 三种策略，d=33、target 0.18、120 s；D_info 从真实制动起点计</text>
+  <text x="56" y="76" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="26" font-weight="700" fill="#10233F">S1 结果：G2 完胜 G0 与 G1</text>
+  <text x="56" y="106" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="13" fill="#6B7C8F">3 个种子 × 四种策略，d=33、target 0.18、120 s；D_info 从真实制动起点计</text>
 
-  <image x="56" y="130" width="600" height="175" href="./assets/fig3_s1_comparison.png"/>
+  <image x="56" y="128" width="600" height="175" href="./assets/fig3_s1_comparison.png"/>
 
-  <rect x="684" y="130" width="220" height="175" rx="8" fill="#FFFFFF" stroke="#D8E0E8"/>
-  <text x="704" y="160" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#6B7C8F">事件窗口平均速率</text>
-  <text x="704" y="186" font-family="Segoe UI, sans-serif" font-size="22" font-weight="700" fill="#10233F">3.05 → 9.16</text>
-  <text x="704" y="206" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="11" fill="#6B7C8F">Hz（G0 → G2/G3）</text>
-  <text x="704" y="240" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#6B7C8F">总发送量变化</text>
-  <text x="704" y="266" font-family="Segoe UI, sans-serif" font-size="22" font-weight="700" fill="#0E7C86">&lt; 0.02%</text>
-  <text x="704" y="288" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="11" fill="#6B7C8F">三组几乎相同</text>
+  <rect x="684" y="128" width="220" height="175" rx="8" fill="#FFFFFF" stroke="#D8E0E8"/>
+  <text x="704" y="156" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#6B7C8F">事件窗口平均速率</text>
+  <text x="704" y="182" font-family="Segoe UI, sans-serif" font-size="20" font-weight="700" fill="#10233F">3.05 / 9.16</text>
+  <text x="704" y="202" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="11" fill="#6B7C8F">Hz（G0/G1 vs G2/G3）</text>
+  <text x="704" y="234" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#6B7C8F">G1 反而多发</text>
+  <text x="704" y="260" font-family="Segoe UI, sans-serif" font-size="20" font-weight="700" fill="#C2710C">+20%</text>
+  <text x="704" y="282" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="11" fill="#6B7C8F">且时延比 G0 更差</text>
 
-  <rect x="56" y="330" width="848" height="122" rx="8" fill="#FFFFFF" stroke="#D8E0E8"/>
-  <text x="80" y="358" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="13" font-weight="700" fill="#0E7C86">逐种子结果（D_info，ms）</text>
-  <text x="80" y="386" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#33475B">G0：113.7 / 140.7 / 231.0（均值 161.8 ± 61.4）</text>
-  <text x="80" y="410" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#33475B">G2 与 G3：100.4 / 100.4 / 100.4（标准差 0，与 G0 完全不重叠）</text>
-  <text x="80" y="434" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#6B7C8F">约 100 ms 是检测固有延迟；差异全部来自“检测后等下一次发送”：G0 等 13–131 ms，G2/G3 约 0。</text>
+  <rect x="56" y="326" width="848" height="126" rx="8" fill="#FFFFFF" stroke="#D8E0E8"/>
+  <text x="80" y="354" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="13" font-weight="700" fill="#0E7C86">逐种子结果（D_info，事件起点，ms）</text>
+  <text x="80" y="382" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#33475B">G0：113.7 / 140.7 / 231.0（均值 161.8 ± 61.4）　　G1：55.1 / 251.2 / 211.2（均值 272.5 ± 103.6）</text>
+  <text x="80" y="406" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#33475B">G2 与 G3：100.4 / 100.4 / 100.4（标准差 0，与其它三组完全不重叠）</text>
+  <text x="80" y="432" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#6B7C8F">G1 失效的原因：速度权重对全车队生效 → 基础速率被压到 1.6 Hz；急刹时车速下降、W 退回 1，制动车反而更慢。</text>
 
   <text x="56" y="512" font-family="Segoe UI, sans-serif" font-size="10.5" fill="#8A99A8">EIE575 Group 3 · TABR</text>
   <text x="904" y="512" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="10.5" fill="#8A99A8">7 / 10</text>
