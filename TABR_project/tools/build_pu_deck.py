@@ -80,6 +80,18 @@ def find(slide, name):
     raise KeyError(name)
 
 
+def swap_picture(slide, name, path):
+    """Replace a picture in place, fitting it inside the original box."""
+    pic = find(slide, name)
+    left, top, w, h = pic.left, pic.top, pic.width, pic.height
+    pic._element.getparent().remove(pic._element)
+    iw, ih = Image.open(path).size
+    scale = min(w / iw, h / ih)
+    nw, nh = int(iw * scale), int(ih * scale)
+    slide.shapes.add_picture(path, left + (w - nw) // 2, top + (h - nh) // 2,
+                             width=Emu(nw), height=Emu(nh))
+
+
 def main():
     prs = Presentation(SRC)
     S = list(prs.slides)
@@ -93,14 +105,12 @@ def main():
         "separately, and S0 delay is N/A.",
     )
 
-    # --- slide 8: new CBR figure, density split -------------------------
+    # --- refresh every embedded figure ----------------------------------
+    swap_picture(prs.slides[6], "Picture 6", os.path.join(ASSETS, "fig1_working_point.png"))
     s8 = prs.slides[7]
-    pic2 = find(s8, "Picture 6")
-    left, top, w0 = pic2.left, pic2.top, pic2.width
-    pic2._element.getparent().remove(pic2._element)
-    f2 = os.path.join(ASSETS, "fig2_cbr_vs_rate.png")
-    iw, ih = Image.open(f2).size
-    s8.shapes.add_picture(f2, left, top, width=Emu(w0), height=Emu(int(w0 * ih / iw)))
+    swap_picture(s8, "Picture 6", os.path.join(ASSETS, "fig2_cbr_vs_rate.png"))
+    swap_picture(s8, "Picture 7", os.path.join(ASSETS, "fig4_load_ladder.png"))
+    swap_picture(prs.slides[8], "Picture 6", os.path.join(ASSETS, "fig3_s1_comparison.png"))
     set_text(
         find(s8, "TextBox 8"),
         "Left: CBR versus base rate by density; right: base rate and CBR versus density at target 0.18.",
@@ -121,7 +131,7 @@ def main():
 
     fig5 = os.path.join(ASSETS, "fig5_beta_sweep.png")
     w, h = Image.open(fig5).size
-    pic = find(beta, "Picture 6")
+    pic = max((sh for sh in beta.shapes if sh.shape_type == 13), key=lambda sh: sh.width)
     pic._element.getparent().remove(pic._element)
     width = Emu(648 * 12700)
     height = Emu(int(width * h / w))
