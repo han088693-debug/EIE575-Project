@@ -44,7 +44,7 @@ def check_deck(report, rows):
     # English one in deck/en/. Each is checked on its own, so moving or
     # exporting one never masks the other going stale.
     decks = sorted(
-        [*DOCS.glob("deck/*.pptx"), *DOCS.glob("deck/en/*.pptx")],
+        [*DOCS.glob("deck/*.pptx"), *DOCS.glob("deck/en/*.pptx"), *DOCS.glob("deck/pu/*.pptx")],
         key=lambda p: str(p),
     )
     if not decks:
