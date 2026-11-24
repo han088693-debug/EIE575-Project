@@ -3,10 +3,11 @@
 
     python tools/make_figures.py              # writes docs/figures/fig5..fig7
 
-fig1..fig4 predate this script (they were drawn from the calibration and S1
-matrices in the working repo); they are kept untouched so the images cited by
-the earlier commits stay byte-identical. This script only covers the figures
-added together with the beta sweep and the v4 deployment.
+fig1, fig3 and fig4 predate this script (they were drawn from the calibration
+and S1 matrices in the working repo) and are kept untouched so the images cited
+by the earlier commits stay byte-identical. fig2 is regenerated here from the
+calibration table plus the load ladder, because the previous version was a
+two-point chord between anchors from two different densities.
 
 Every number below is copied from TABR_project/docs/REPORT_20261124.md
 (sections in the comments) or from the archived sweep summary; keep them in
@@ -14,6 +15,7 @@ step with the report when the report changes.
 """
 import io
 import csv
+import sys
 from pathlib import Path
 
 import matplotlib
@@ -194,10 +196,68 @@ def fig7_delay_split():
     return path
 
 
+def fig2_cbr():
+    """CBR against fleet base rate, split by density.
+
+    d = 33 gives four calibration targets on one line; the d = 30 anchor comes
+    from the high-load campaign; d = 15 and d = 5 sit far below at the same
+    base rate, which is the point: CBR is produced by rate *and* density.
+    Numbers from REPORT_20261124.md sections 5.1 and 5.2.
+    """
+    cal_b = [2.33, 2.60, 3.08, 3.57]
+    cal_c = [0.119, 0.137, 0.158, 0.177]
+    a_b, a_c = 10.0, 0.41
+    d15 = (6.70, 0.160)
+    d5 = (10.00, 0.083)
+
+    xs = cal_b + [a_b]
+    ys = cal_c + [a_c]
+    xbar = sum(xs) / len(xs)
+    ybar = sum(ys) / len(ys)
+    k = sum((x - xbar) * (y - ybar) for x, y in zip(xs, ys)) / sum((x - xbar) ** 2 for x in xs)
+    c0 = ybar - k * xbar
+
+    fig, ax = plt.subplots(figsize=(4.3, 3.2), dpi=200)
+    gx = [2.0, 10.6]
+    ax.plot(gx, [k * x + c0 for x in gx], ls="--", lw=1.3, color=GREY,
+            label="fit, %.3f per Hz" % k)
+    ax.plot(cal_b, cal_c, "o", color=TEAL, ms=6, label="d = 33 (calibration)")
+    ax.plot([a_b], [a_c], "s", color=ORANGE, ms=7, label="d = 30 (high load)")
+    ax.plot([d15[0]], [d15[1]], "o", mfc="none", mec="#8A99A8", ms=6, mew=1.4, label="d = 15")
+    ax.plot([d5[0]], [d5[1]], "o", mfc="none", mec="#8A99A8", ms=6, mew=1.4, label="d = 5 (b capped)")
+
+    ax.annotate("%.3f" % cal_c[0], (cal_b[0], cal_c[0]), xytext=(6, -12),
+                textcoords="offset points", fontsize=7.5, color=TEAL)
+    ax.annotate("%.2f" % a_c, (a_b, a_c), xytext=(-30, 6), textcoords="offset points",
+                fontsize=7.5, color=ORANGE)
+    ax.annotate("same b, 5x less load", (d5[0], d5[1]), xytext=(-96, 14),
+                textcoords="offset points", fontsize=7, color="#6B7C8F")
+
+    ax.set_xlim(2.0, 10.6)
+    ax.set_ylim(0.05, 0.45)
+    ax.set_xlabel("fleet base rate b (Hz)", fontsize=9)
+    ax.set_ylabel("measured CBR", fontsize=9)
+    ax.set_title("CBR is produced by the fleet itself", fontsize=10)
+    ax.tick_params(labelsize=8)
+    ax.grid(True, color="#E4EAF0", lw=0.6)
+    ax.legend(fontsize=7, loc="upper left", frameon=False)
+    fig.tight_layout()
+    path = OUT / "fig2_cbr_vs_rate.png"
+    fig.savefig(path, dpi=200)
+    plt.close(fig)
+    return path
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
-    compact, ceiling = read_sweep()
-    for path in (fig5_beta(compact, ceiling), fig6_v4(), fig7_delay_split()):
+    which = sys.argv[1] if len(sys.argv) > 1 else "all"
+    paths = []
+    if which in ("all", "fig2"):
+        paths.append(fig2_cbr())
+    if which in ("all", "sweep"):
+        compact, ceiling = read_sweep()
+        paths += [fig5_beta(compact, ceiling), fig6_v4(), fig7_delay_split()]
+    for path in paths:
         print("wrote", path, path.stat().st_size, "bytes")
 
 
