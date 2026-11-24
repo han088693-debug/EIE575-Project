@@ -4,7 +4,7 @@
 
 | 文件 | 说明 |
 | --- | --- |
-| `summary.csv` | 6 条运行的汇总，两个速率窗口并列（事件窗 / 制动窗），带 `b_min_hz`、`w_max` |
+| `summary.csv` | 7 条运行的汇总，两个速率窗口并列（事件窗 / 制动窗），带 `b_min_hz`、`w_max` |
 | `SHA256.txt` | 入库配置、汇总表、以及原始 attempt 快照的哈希 |
 
 入库配置在 `TABR_project/configs/probes/`：
@@ -15,12 +15,13 @@
 | `bsweep_v4_b1p0.json` | v4 | 1.0 | 0.5000 | 0.42 |
 | `bsweep_v4_b1p5.json` | v4 | 1.5 | 0.4000 | 0.42 |
 | `bsweep_v4_b2p0.json` | v4 | 2.0 | 0.3333 | 0.42 |
+| `bsweep_v4_b3p0.json` | v4 | 3.0 | 0.2500 | 0.42 |
 | `bceil_s1_b2p0.json` | all_vehicles_same_scheme | 2.0 | 0.3333 | 0.18 |
 | `bceil_s1_b3p0.json` | all_vehicles_same_scheme | 3.0 | 0.2500 | 0.18 |
 
 ## 来源与等价性
 
-六份配置不是事后重写的，而是从各 attempt 目录的 `config_snapshot.json` 原样取出、只重排了 JSON 缩进：
+前六份配置不是事后重写的，而是从各 attempt 目录的 `config_snapshot.json` 原样取出、只重排了 JSON 缩进；`bsweep_v4_b3p0.json` 是 11-24 补跑时由 b2p0 改 β 与 b_min 生成，用来补齐预注册网格：
 
 - 语义上与原快照逐字段相等（已用 `json` 对象比较核对）；
 - 字节哈希不同（缩进与行尾不同），因此 `SHA256.txt` 同时记录入库配置和原快照两组哈希。
