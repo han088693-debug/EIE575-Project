@@ -27,5 +27,5 @@
 ## 英文版
 
 `en/` 下是同一套 10 页的英文版：页源为 `en/page-NN.svg`（由本目录 `page-NN.svg` 逐节点翻译，长句相应降到 11.5–12 pt），
-编译进 `EIE575_TABR_deck_EN.univer` 并导出 `EIE575_TABR_deck_EN.pptx`。图片仍引用 `../assets/`，不重复存放。
+编译进 `EIE575_TABR_deck_EN.univer`，导出 `en/EIE575_TABR_deck_EN.pptx`。图片仍引用 `../assets/`，不重复存放。
 版式与配色沿用本规格；数据以中文版为准，改数字时两版同步。

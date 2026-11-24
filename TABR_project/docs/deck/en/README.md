@@ -9,7 +9,7 @@ Chinese deck one level up; only the copy is English.
 | --- | --- |
 | `page-01.svg` … `page-10.svg` | English page sources (page N ↔ `../page-NN.svg`) |
 | `../EIE575_TABR_deck_EN.univer` | Slide document, unit `EIE575 TABR deck (EN)` |
-| `../EIE575_TABR_deck_EN.pptx` | Export handed out / presented |
+| `EIE575_TABR_deck_EN.pptx` | Export handed out / presented (kept beside the sources) |
 
 Figures are shared with the Chinese deck and referenced as `../assets/fig*.png`; nothing is duplicated here.
 
@@ -20,7 +20,7 @@ Figures are shared with the Chinese deck and referenced as `../assets/fig*.png`;
 2. Create the `.univer` file, one Slide unit, then compile pages 1–10 with `univer_compile_svg`
    (`mode: replace`; page 1 first, later pages append).
 3. `univer_lint` returns no findings on all 10 pages; screenshots reviewed page by page.
-4. `univer_export` → `../EIE575_TABR_deck_EN.pptx` (10 slides, 4 embedded figures).
+4. `univer_export` → `EIE575_TABR_deck_EN.pptx` in this folder (10 slides, 4 embedded figures).
 
 ## Keeping it in sync
 
