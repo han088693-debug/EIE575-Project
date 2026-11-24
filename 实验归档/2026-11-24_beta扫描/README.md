@@ -36,6 +36,15 @@
 
 "制动窗平均 r" 与 "触顶比例" 只看 `lead_brake_*`；"事件窗平均 W" 只看 `lead_W`。报告 §5.8 与 `TABR_project/docs/BSWEEP_20261124.md` 使用同一组口径。
 
+## 复现校验（2026-11-24）
+
+入库的 β=2 配置重跑过一次，用来证明"入库配置 = 当时跑的配置"：
+
+- 运行：`configs/probes/bsweep_v4_b2p0.json`，S1 / high / G2 / seed 300，输出到 `E:/Temp/bsweep_repro`；
+- 结果：attempt `20261124T092632159145Z-b96b58c7159b`，`data_validity = valid`；
+- 与归档行逐字段比对 29 个可比字段，**全部相同**，包括 `all_tx = 122,363`、`all_rx = 10,036,398`、制动窗 r = 6.93 Hz、事件起点 D_info = 100.5 ms；
+- 该次运行的 `metrics.json` SHA256：`b58db29602bc84afa22cc985724eaa386947596d8ccea8e1c6df79daf5893284`。
+
 ## 复现
 
 ```powershell
