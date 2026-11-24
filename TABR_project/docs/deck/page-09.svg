@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+  <rect width="960" height="540" fill="#F5F7FA"/>
+  <text x="56" y="76" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="26" font-weight="700" fill="#10233F">v4：让拥塞与区分度同时成立</text>
+  <text x="56" y="106" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="13" fill="#6B7C8F">把背景负载与受控速率解耦：背景车固定 10 Hz 发送，只有目标车进入 CBR 反馈</text>
+
+  <rect x="56" y="134" width="420" height="212" rx="8" fill="#FFFFFF" stroke="#D8E0E8"/>
+  <text x="78" y="164" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="13" font-weight="700" fill="#0E7C86">做法</text>
+  <text x="78" y="192" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#33475B">· 背景车：W=1、固定 10 Hz，不参与反馈</text>
+  <text x="78" y="216" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#33475B">· 目标车：沿用同一控制律与门控</text>
+  <text x="78" y="240" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#33475B">· cbr_target = 0.42，使误差落在死区内，</text>
+  <text x="78" y="262" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#33475B">避免目标 b 被推到 1 Hz 的下限</text>
+  <text x="78" y="286" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#33475B">· 校验器同步复刻固定速率规则</text>
+  <text x="78" y="318" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="11.5" fill="#6B7C8F">改动：TabrApp 新增 backgroundRateHz 参数；</text>
+  <text x="78" y="336" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="11.5" fill="#6B7C8F">C++ 776 checks / Python 7 passed。</text>
+
+  <rect x="500" y="134" width="404" height="212" rx="8" fill="#FFFFFF" stroke="#D8E0E8"/>
+  <text x="522" y="164" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="13" font-weight="700" fill="#0E7C86">已实测（E0，d=33，seed 100）</text>
+  <text x="522" y="196" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#33475B">v3.2：CBR 0.158 ，b 3.08 Hz</text>
+  <text x="522" y="222" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" font-weight="700" fill="#10233F">v4：CBR 0.426，b 2.38 Hz</text>
+  <line x1="522" y1="240" x2="882" y2="240" stroke="#E4EAF0"/>
+  <text x="522" y="266" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#33475B">预期事件期速率：G0 2.4 Hz、G2 7.1 Hz</text>
+  <text x="522" y="290" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#33475B">区分度约 3 倍，且信道忙碌率 42.6%</text>
+  <text x="522" y="314" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="11.5" fill="#6C7C8C">→ 第一次同时满足“可区分”与“有拥塞”</text>
+
+  <rect x="56" y="366" width="848" height="86" rx="8" fill="#FDF3E3"/>
+  <text x="80" y="394" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="13" font-weight="700" fill="#8A5A09">正在跑：v4 的 S1 对比</text>
+  <text x="80" y="420" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#8A5A09">G0 / G2 × 种子 300–302，共 6 次，120 s；检验在 42.6% 忙碌率下，G2 的时延收益是否保留、是否出现超时。</text>
+  <text x="80" y="442" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#8A5A09">同时补齐 G1 速度加权基线（种子 300–302），与已有 G0/G2/G3 逐种子配对。</text>
+
+  <text x="56" y="512" font-family="Segoe UI, sans-serif" font-size="10.5" fill="#8A99A8">EIE575 Group 3 · TABR</text>
+  <text x="904" y="512" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="10.5" fill="#8A99A8">9 / 10</text>
+</svg>

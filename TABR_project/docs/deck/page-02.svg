@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+  <rect width="960" height="540" fill="#F5F7FA"/>
+  <text x="56" y="76" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="26" font-weight="700" fill="#10233F">问题：拥塞让制动信息迟到</text>
+  <text x="56" y="106" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="13" fill="#6B7C8F">即使两车已在通信范围内，新产生的制动信息仍要排队等待发送机会</text>
+
+  <rect x="56" y="140" width="272" height="196" rx="8" fill="#FFFFFF" stroke="#D8E0E8"/>
+  <rect x="56" y="140" width="272" height="5" rx="2" fill="#0E7C86"/>
+  <text x="80" y="188" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="16" font-weight="700" fill="#10233F">拥塞控制会排队</text>
+  <text x="80" y="222" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#33475B">CBR 反馈压低基础速率，</text>
+  <text x="80" y="244" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#33475B">刚发生的急刹可能等不到</text>
+  <text x="80" y="266" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#33475B">下一个发送机会。</text>
+
+  <rect x="344" y="140" width="272" height="196" rx="8" fill="#FFFFFF" stroke="#D8E0E8"/>
+  <rect x="344" y="140" width="272" height="5" rx="2" fill="#C2710C"/>
+  <text x="368" y="188" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="16" font-weight="700" fill="#10233F">检测本身约 100 ms</text>
+  <text x="368" y="222" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#33475B">从真实制动起点到标记置位，</text>
+  <text x="368" y="244" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#33475B">三种策略完全相同；</text>
+  <text x="368" y="266" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#33475B">差异只能在之后发生。</text>
+
+  <rect x="632" y="140" width="272" height="196" rx="8" fill="#FFFFFF" stroke="#D8E0E8"/>
+  <rect x="632" y="140" width="272" height="5" rx="2" fill="#5B3FA8"/>
+  <text x="656" y="188" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="16" font-weight="700" fill="#10233F">三个可检验假设</text>
+  <text x="656" y="222" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#33475B">H1 急刹加权优于 G0/G1</text>
+  <text x="656" y="244" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#33475B">H2 运动变化有额外收益</text>
+  <text x="656" y="266" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#33475B">H3 静止队尾与同步制动</text>
+
+  <rect x="56" y="368" width="848" height="72" rx="8" fill="#E7F1F2"/>
+  <text x="80" y="398" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#0E7C86">本研究要回答</text>
+  <text x="80" y="422" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#33475B">在一个既有真实拥塞、又能让策略产生速率区分的工作点上，急刹加权能否把制动信息送得更早，代价是多少？</text>
+
+  <text x="56" y="512" font-family="Segoe UI, sans-serif" font-size="10.5" fill="#8A99A8">EIE575 Group 3 · TABR</text>
+  <text x="904" y="512" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="10.5" fill="#8A99A8">2 / 10</text>
+</svg>

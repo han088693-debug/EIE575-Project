@@ -34,5 +34,6 @@ simple TabrApp extends DemoBaseApplLayer
         double feedbackGain = default(0.5);
         double smoothingOld = default(0.8);
         double jitterFraction = default(0.05);
+        double backgroundRateHz = default(0);   // >0: background vehicles send at this fixed rate (v4)
         int messageBits @unit(bit) = default(2000bit);
 }

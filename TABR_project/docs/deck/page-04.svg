@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+  <rect width="960" height="540" fill="#F5F7FA"/>
+  <text x="56" y="76" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="26" font-weight="700" fill="#10233F">平台与四个场景</text>
+
+  <rect x="56" y="96" width="848" height="40" rx="6" fill="#10233F"/>
+  <text x="76" y="121" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#E8EEF5">OMNeT++ 5.6.2 · Veins 5.0 · SUMO 1.6.0 · IEEE 802.11p 单跳 · 20 mW / 6 Mbps · 250 B / 优先级 7 · 0.1 s 步长 · 120 s（预热 20 s）</text>
+
+  <rect x="56" y="156" width="206" height="188" rx="8" fill="#FFFFFF" stroke="#D8E0E8"/>
+  <rect x="56" y="156" width="206" height="5" rx="2" fill="#0E7C86"/>
+  <text x="76" y="192" font-family="Segoe UI, sans-serif" font-size="18" font-weight="700" fill="#0E7C86">S0</text>
+  <text x="76" y="218" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="13" font-weight="700" fill="#10233F">已知静止队尾</text>
+  <text x="76" y="248" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#33475B">四组获得完全相同的</text>
+  <text x="76" y="268" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#33475B">先验，队尾保持静止</text>
+  <text x="76" y="296" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="11.5" fill="#6B7C8F">估计误差 / 更新开销</text>
+
+  <rect x="274" y="156" width="206" height="188" rx="8" fill="#FFFFFF" stroke="#D8E0E8"/>
+  <rect x="274" y="156" width="206" height="5" rx="2" fill="#C2710C"/>
+  <text x="294" y="192" font-family="Segoe UI, sans-serif" font-size="18" font-weight="700" fill="#C2710C">S1</text>
+  <text x="294" y="218" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="13" font-weight="700" fill="#10233F">突发制动（主场景）</text>
+  <text x="294" y="248" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#33475B">80 km/h、-6 m/s²、</text>
+  <text x="294" y="268" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#33475B">净距 25 m，事件在 20 s</text>
+  <text x="294" y="296" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="11.5" fill="#6B7C8F">D_info / 超时 / 漏收</text>
+
+  <rect x="492" y="156" width="206" height="188" rx="8" fill="#FFFFFF" stroke="#D8E0E8"/>
+  <rect x="492" y="156" width="206" height="5" rx="2" fill="#5B3FA8"/>
+  <text x="512" y="192" font-family="Segoe UI, sans-serif" font-size="18" font-weight="700" fill="#5B3FA8">S2</text>
+  <text x="512" y="218" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="13" font-weight="700" fill="#10233F">多车同步制动</text>
+  <text x="512" y="248" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#33475B">四辆目标车同时急刹</text>
+  <text x="512" y="268" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#33475B">的压力测试</text>
+  <text x="512" y="296" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="11.5" fill="#6B7C8F">CBR 峰值 / 恢复时间</text>
+
+  <rect x="710" y="156" width="194" height="188" rx="8" fill="#FFFFFF" stroke="#D8E0E8"/>
+  <rect x="710" y="156" width="194" height="5" rx="2" fill="#4A5B6E"/>
+  <text x="730" y="192" font-family="Segoe UI, sans-serif" font-size="18" font-weight="700" fill="#4A5B6E">E0</text>
+  <text x="730" y="218" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="13" font-weight="700" fill="#10233F">无急刹校准</text>
+  <text x="730" y="248" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#33475B">标定低 / 高两档</text>
+  <text x="730" y="268" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#33475B">背景负载</text>
+  <text x="730" y="296" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="11.5" fill="#6B7C8F">CBR / 调率占比</text>
+
+  <rect x="56" y="366" width="848" height="86" rx="8" fill="#E7F1F2"/>
+  <text x="80" y="394" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="13" font-weight="700" fill="#0E7C86">统计口径</text>
+  <text x="80" y="420" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#33475B">每档 5 个种子，四组同种子配对；包、车对与同次运行内事件不算独立重复。p50/p95 附成功数与总数。</text>
+  <text x="80" y="442" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#33475B">期限 0.8 s，观测窗 2 s；超时与右删失分开计数，S0 的事件延迟记为 N/A。</text>
+
+  <text x="56" y="512" font-family="Segoe UI, sans-serif" font-size="10.5" fill="#8A99A8">EIE575 Group 3 · TABR</text>
+  <text x="904" y="512" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="10.5" fill="#8A99A8">4 / 10</text>
+</svg>

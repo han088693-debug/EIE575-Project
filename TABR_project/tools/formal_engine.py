@@ -106,6 +106,7 @@ def effective_ini(cfg, job):
         "feedbackGain": c["feedback_gain"],
         "smoothingOld": c["smoothing_old"],
         "jitterFraction": c["jitter_fraction"],
+        "backgroundRateHz": c.get("background_rate_hz", 0),
     }
     brake = {
         "formalMode": "true",

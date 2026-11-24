@@ -23,6 +23,7 @@ public:
     const Prior* priorFor(const std::string& sender, const std::string& receiver) const;
     bool tracksSender(const std::string& sender) const { return senders.count(sender); }
     bool auditsBusy(const std::string& vehicle) const { return audited.count(vehicle); }
+    bool isTarget(const std::string& vehicle) const { return targets.count(vehicle); }
     double phase(const std::string& id) const;
     void vehicleEntered();
     void vehicleLeft();
@@ -36,7 +37,7 @@ private:
     std::map<std::string,std::vector<std::string>> receivers;
     std::map<std::pair<std::string,std::string>,Prior> priors;
     std::map<std::string,double> phases;
-    std::set<std::string> senders, audited;
+    std::set<std::string> senders, audited, targets;
 };
 
 }

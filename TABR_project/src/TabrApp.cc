@@ -48,6 +48,7 @@ void TabrApp::initialize(int stage)
     base = par("initialBaseHz").doubleValue();
     beta = par("beta").doubleValue();
     target = par("cbrTarget").doubleValue();
+    backgroundRate = par("backgroundRateHz").doubleValue();
     deadband = par("cbrDeadband").doubleValue();
     eta = par("feedbackGain").doubleValue();
     smoothOld = par("smoothingOld").doubleValue();
@@ -188,12 +189,19 @@ void TabrApp::control()
     C = clip(busyDuration / (now - windowStart), 0, 1);
     Cbar = smoothed ? smoothOld * Cbar + (1 - smoothOld) * C : C;
     smoothed = true;
-    if (controlActive(now, kEstimateSettleSeconds, smoothed)) {
-        base = updateBase(base, Cbar, target, deadband, eta, rMin / (1 + beta), rMax);
+    const bool fixedBackground =
+        backgroundFixedRate(backgroundRate, formal != nullptr, formal != nullptr && formal->isTarget(vehicleId));
+    if (fixedBackground) {
+        base = backgroundRate;
+        W = 1;
+    } else {
+        if (controlActive(now, kEstimateSettleSeconds, smoothed)) {
+            base = updateBase(base, Cbar, target, deadband, eta, rMin / (1 + beta), rMax);
+        }
+        W = weight(scheme, brake, S, speed, speedReference, beta);
     }
-    W = weight(scheme, brake, S, speed, speedReference, beta);
     U = beta > 0 ? (W - 1) / beta : 0;
-    rate = clip(base * W, rMin, rMax);
+    rate = fixedBackground ? base : clip(base * W, rMin, rMax);
     auto& stream = formal ? formal->control : controlLog;
     stream << runId << ',' << vehicleId << ',';
     if (formal) stream << simTime().str() << ',' << SimTime(windowStart).str() << ',' << simTime().str();

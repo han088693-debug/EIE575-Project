@@ -201,12 +201,21 @@ void warmupGate()
     near(base, 2, "base held when measured CBR sits inside the deadband");
 }
 
+void deployment()
+{
+    expect(!tabr::backgroundFixedRate(0, true, false), "v3 mode keeps the feedback law for all vehicles");
+    expect(!tabr::backgroundFixedRate(10, true, true), "targets stay under feedback control");
+    expect(tabr::backgroundFixedRate(10, true, false), "v4 mode fixes background rate");
+    expect(!tabr::backgroundFixedRate(10, false, false), "demo mode ignores the fixed background rate");
+}
+
 int main()
 {
     busyWindows();
     motionHistory();
     controller();
     warmupGate();
+    deployment();
     sendTiming();
     std::cout << (failures ? "FAIL" : "PASS") << ": " << checks << " checks, " << failures << " failures\n";
     return failures ? 1 : 0;

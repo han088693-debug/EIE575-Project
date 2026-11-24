@@ -66,7 +66,7 @@ FormalObservation::FormalObservation(const std::string& folder, const std::strin
         receivers[v].push_back(s);
         senders.insert(s);
         audited.insert(v); // fixed target receivers and preregistered background receivers
-        if (r.at("role") == "target") audited.insert(s);
+        if (r.at("role") == "target") { audited.insert(s); targets.insert(s); targets.insert(v); }
     });
     readCsv("prior.csv", [this](const Row& r) {
         const auto pair = std::make_pair(r.at("sender_id"),r.at("receiver_id"));

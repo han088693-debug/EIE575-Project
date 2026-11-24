@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+  <rect width="960" height="540" fill="#F5F7FA"/>
+  <text x="56" y="76" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="26" font-weight="700" fill="#10233F">CBR 是车队自己产生的</text>
+  <text x="56" y="106" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="13" fill="#6B7C8F">部署模式为 all_vehicles_same_scheme：背景车也跑同一控制器，所以负载不是外部给定的</text>
+
+  <image x="56" y="132" width="300" height="222" href="./assets/fig2_cbr_vs_rate.png"/>
+
+  <image x="392" y="150" width="456" height="192" href="./assets/fig4_load_ladder.png"/>
+
+  <text x="392" y="378" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#6B7C8F">同一 target 0.18 下：d=5 顶格 10 Hz，d=15 → 6.70 Hz，d=33 → 3.36 Hz；</text>
+  <text x="392" y="398" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#6B7C8F">CBR 在 d=15 与 d=33 都稳到 0.16 附近。</text>
+
+  <rect x="56" y="404" width="848" height="60" rx="8" fill="#FDF3E3"/>
+  <text x="80" y="430" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#8A5A09">实测锚点：b≈2.35 Hz 时 CBR 0.12；b=10 Hz 时 CBR 0.41（d=30）。斜率约 0.04 / Hz。</text>
+  <text x="80" y="452" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#8A5A09">这直接解释了：要把 b 降下来才有区分度，但 b 一降，信道就空了。</text>
+
+  <text x="56" y="512" font-family="Segoe UI, sans-serif" font-size="10.5" fill="#8A99A8">EIE575 Group 3 · TABR</text>
+  <text x="904" y="512" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="10.5" fill="#8A99A8">6 / 10</text>
+</svg>

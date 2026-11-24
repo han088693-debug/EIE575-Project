@@ -339,6 +339,16 @@ def aggregate_controls(logs, clock, cfg, life, tracked, window, step, smoothing)
     c = cfg["control"]
     tol = cfg["analysis"].get("busy_integral_tolerance_s", 1e-8)
     max_rate, min_rate = c["r_max_hz"], c["r_min_hz"]
+    fixed_rate = float(c.get("background_rate_hz", 0) or 0)
+    target_ids = set()
+    if fixed_rate > 0:
+        pairs = Path(logs).parent / "inputs" / "pairs.csv"
+        if pairs.is_file():
+            for pair in rows(pairs, "sender_id receiver_id role"):
+                if pair["role"] == "target":
+                    target_ids.update((pair["sender_id"], pair["receiver_id"]))
+        if not target_ids:
+            raise ValueError("fixed background rate requires a registered target pair")
     fields = "vehicle_id tick_time window_start window_end busy_duration_s C Cbar r W"
     real = cfg.get("data_origin", "simulation") == "simulation"
     if real:
@@ -371,9 +381,15 @@ def aggregate_controls(logs, clock, cfg, life, tracked, window, step, smoothing)
                     raise ValueError(f"inconsistent smoothed CBR for {v} at {t}")
                 prev_cbar[v] = filtered
                 if real:
-                    previous_b[v] = audit_controller(row, cfg["scheme"], c, filtered,
-                                                     previous_b.get(v, c["b_initial_hz"]),
-                                                     ESTIMATE_SETTLE_S)
+                    if fixed_rate > 0 and v not in target_ids:
+                        # v4: background vehicles hold a fixed rate and bypass the feedback law.
+                        if abs(weight - 1) > 1e-12 or abs(rate - fixed_rate) > 1e-12 or abs(base - fixed_rate) > 1e-12:
+                            raise ValueError(f"background vehicle {v} violates the fixed-rate deployment at {t}")
+                        previous_b[v] = fixed_rate
+                    else:
+                        previous_b[v] = audit_controller(row, cfg["scheme"], c, filtered,
+                                                         previous_b.get(v, c["b_initial_hz"]),
+                                                         ESTIMATE_SETTLE_S)
                     formula_count += 1
                 audit.advance(t)
                 if life[v][4]:

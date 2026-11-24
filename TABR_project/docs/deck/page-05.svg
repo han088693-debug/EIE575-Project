@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+  <rect width="960" height="540" fill="#F5F7FA"/>
+  <text x="56" y="76" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="26" font-weight="700" fill="#10233F">校准：把 target 映射成工作点</text>
+  <text x="56" y="106" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="13" fill="#6B7C8F">E0 无急刹场景，d = 33 辆/km/车道，每个目标 60 s，取尾段 10 s 中位数</text>
+
+  <image x="56" y="140" width="500" height="200" href="./assets/fig1_working_point.png"/>
+
+  <rect x="580" y="140" width="324" height="200" rx="8" fill="#FFFFFF" stroke="#D8E0E8"/>
+  <text x="600" y="172" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="13" font-weight="700" fill="#0E7C86">四个目标全部收敛</text>
+  <text x="600" y="200" font-family="Consolas, Segoe UI, sans-serif" font-size="12" fill="#33475B">target 0.14 → b 2.33 Hz</text>
+  <text x="600" y="222" font-family="Consolas, Segoe UI, sans-serif" font-size="12" fill="#33475B">target 0.16 → b 2.60 Hz</text>
+  <text x="600" y="244" font-family="Consolas, Segoe UI, sans-serif" font-size="12" fill="#33475B">target 0.18 → b 3.08 Hz</text>
+  <text x="600" y="266" font-family="Consolas, Segoe UI, sans-serif" font-size="12" fill="#33475B">target 0.20 → b 3.57 Hz</text>
+  <text x="600" y="296" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#6B7C8F">实测 CBR 与 target 偏差 ≤ 0.023，</text>
+  <text x="600" y="316" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#6B7C8F">全部落在 ±0.03 死区内。</text>
+
+  <rect x="56" y="360" width="848" height="92" rx="8" fill="#E7F1F2"/>
+  <text x="80" y="388" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="13" font-weight="700" fill="#0E7C86">选定工作点 target = 0.18</text>
+  <text x="80" y="414" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#33475B">此时 b ≈ 3.08 Hz：G0 发 3 Hz、G2 发 min(3×3.08, 10) = 9.2 Hz，速率区分度约 3 倍，且 r 尚未触顶。</text>
+  <text x="80" y="438" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#33475B">两档校准结果：d = 5 与 d = 33 各两个种子全部 stable，decision = selected {low: 5, high: 33}。</text>
+
+  <text x="56" y="512" font-family="Segoe UI, sans-serif" font-size="10.5" fill="#8A99A8">EIE575 Group 3 · TABR</text>
+  <text x="904" y="512" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="10.5" fill="#8A99A8">5 / 10</text>
+</svg>

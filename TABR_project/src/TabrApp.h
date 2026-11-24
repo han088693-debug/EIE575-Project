@@ -54,6 +54,7 @@ private:
     double threshold = 4, errorScale = 0.5, speedReference = 9.166666666666667;
     double rMin = 1, rMax = 10, beta = 2, base = 2;
     double target = 0.6, deadband = 0.03, eta = 0.5, smoothOld = 0.8, jitterFraction = 0.05;
+    double backgroundRate = 0;
     double C = 0, Cbar = 0, innovation = 0, S = 0, U = 0, W = 1, rate = 2;
     double x = 0, speed = 0, accel = 0;
     double windowStart = 0, lastMotion = -1, lastSubmit = 0, jitter = 1;

@@ -116,6 +116,13 @@ inline double updateBase(double base, double cbar, double target, double deadban
 // 估计量的有效时间取一个控制窗口量级；场景预热只用于测量，不用于控制门控。
 constexpr double kEstimateSettleSeconds = 1.0;
 
+// v4 部署模型：背景车固定速率发送，只有目标车进入 CBR 反馈控制。
+inline bool backgroundFixedRate(double backgroundRateHz, bool formal, bool isTarget)
+{
+    return formal && backgroundRateHz > 0 && !isTarget;
+}
+
+
 inline bool controlActive(double now, double settleSeconds, bool estimateValid)
 {
     return estimateValid && now + 1e-12 >= settleSeconds;
