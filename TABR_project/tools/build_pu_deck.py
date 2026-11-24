@@ -93,6 +93,25 @@ def main():
         "separately, and S0 delay is N/A.",
     )
 
+    # --- slide 8: new CBR figure, density split -------------------------
+    s8 = prs.slides[7]
+    pic2 = find(s8, "Picture 6")
+    left, top, w0 = pic2.left, pic2.top, pic2.width
+    pic2._element.getparent().remove(pic2._element)
+    f2 = os.path.join(ASSETS, "fig2_cbr_vs_rate.png")
+    iw, ih = Image.open(f2).size
+    s8.shapes.add_picture(f2, left, top, width=Emu(w0), height=Emu(int(w0 * ih / iw)))
+    set_text(
+        find(s8, "TextBox 8"),
+        "Left: CBR versus base rate by density; right: base rate and CBR versus density at target 0.18.",
+    )
+    set_text(
+        find(s8, "TextBox 10"),
+        "Four d = 33 calibration points fall on one line (0.037 per Hz); the d = 30 anchor is 0.41. At "
+        "the same 10 Hz, d = 5 gives only 0.083, so CBR is set by rate and density together \u2014 lowering "
+        "b buys separation but also empties the channel.",
+    )
+
     # --- new beta slide, cloned from the calibration slide ---------------
     beta = clone_slide(prs, S[6])
     move_slide(prs, len(prs.slides) - 1, 11)  # after slide 11 (v4)
