@@ -23,7 +23,7 @@ DEFAULT_SRC = r"E:/xwechat_files/wxid_iphuvwp1dah512_c7f9/msg/file/2026-11/EIE57
 SRC = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_SRC
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 ASSETS = os.path.join(ROOT, "TABR_project", "docs", "deck", "assets")
-OUT = os.path.join(ROOT, "TABR_project", "docs", "deck", "pu", "EIE575_TABR_Group3.pptx")
+OUT = os.environ.get("PU_OUT") or os.path.join(ROOT, "TABR_project", "docs", "deck", "pu", "EIE575_TABR_Group3.pptx")
 
 
 def set_text(shape, text):
