@@ -61,6 +61,7 @@ EIE575 课程项目（Group 3）。平台为 OMNeT++ 5.6.2 + Veins 5.0 + SUMO 1.
 | [docs/技术设计.md](docs/技术设计.md) | 平台参数、算法与控制环、指标定义、日志契约、实验矩阵与验收 |
 | [EIE575_剩余工作与执行计划_20261123.md](EIE575_剩余工作与执行计划_20261123.md) | 剩余工作排期与验收条件 |
 | `TABR_project/` | 主线运行器、场景、配置、预编译模拟器与源码 |
+| `TABR_project/docs/data/` | 实验数据工作簿：7 张数据表 + 10 张原生图表（xlsx + univer） |
 | `S1_starter/` | OMNeT++ 起步工程（TabrApp、BrakeScenario、SUMO 路网） |
 | `simulation_mcp/` | 仿真 MCP 服务：宿主、控制器、安装器、命令行客户端、测试与验收证据 |
 | `实验归档/` | E0 校准结论、补充实验、运行器更新记录、CSV/JSON/PDF 与恢复脚本 |
