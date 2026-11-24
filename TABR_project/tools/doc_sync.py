@@ -40,17 +40,23 @@ def check_sources(report_text, rows):
 
 
 def check_deck(report, rows):
-    decks = sorted(DOCS.glob("deck/*.pptx"), key=lambda p: p.stat().st_mtime)
+    # Both editions are deliverables: the Chinese deck in deck/ and the
+    # English one in deck/en/. Each is checked on its own, so moving or
+    # exporting one never masks the other going stale.
+    decks = sorted(
+        [*DOCS.glob("deck/*.pptx"), *DOCS.glob("deck/en/*.pptx")],
+        key=lambda p: str(p),
+    )
     if not decks:
         rows.append(("deck freshness", "(no pptx)", False, "deck missing"))
         return
-    deck = decks[-1]
-    lag = report.stat().st_mtime - deck.stat().st_mtime
-    ok = lag <= DECK_LAG_S
-    rows.append((
-        "deck freshness", deck.name, ok,
-        "" if ok else "report is %d min newer; re-export the deck" % (lag // 60),
-    ))
+    for deck in decks:
+        lag = report.stat().st_mtime - deck.stat().st_mtime
+        ok = lag <= DECK_LAG_S
+        rows.append((
+            "deck freshness", str(deck.relative_to(DOCS)), ok,
+            "" if ok else "report is %d min newer; re-export the deck" % (lag // 60),
+        ))
 
 
 def main():
