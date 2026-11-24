@@ -59,6 +59,13 @@ def fig1_calibration():
     fig, axes = plt.subplots(1, 2, figsize=(8.0, 3.2), dpi=200)
 
     ax = axes[0]
+    tbar = sum(target) / len(target)
+    bbar = sum(b) / len(b)
+    slope = sum((x - tbar) * (y - bbar) for x, y in zip(target, b)) / sum((x - tbar) ** 2 for x in target)
+    icpt = bbar - slope * tbar
+    fx = [0.135, 0.205]
+    ax.plot(fx, [slope * x + icpt for x in fx], ls="--", lw=1.1, color=GREY,
+            label="fit, %.1f Hz per unit target" % slope)
     ax.plot(target, b, "o", color=BLUE, ms=7)
     for x, y in zip(target, b):
         ax.annotate("%.2f" % y, (x, y), xytext=(0, 8), textcoords="offset points",
@@ -67,6 +74,7 @@ def fig1_calibration():
     ax.set_ylabel("settled base rate b (Hz)")
     ax.set_title("E0 working point vs target (d=33)", fontsize=10)
     ax.set_ylim(2.25, 3.75)
+    ax.legend(fontsize=7.5, loc="upper left")
 
     ax = axes[1]
     ax.plot([0.13, 0.21], [0.13, 0.21], ls="--", lw=1.0, color=GREY,
@@ -154,8 +162,14 @@ def fig4_ladder():
     fig, axes = plt.subplots(1, 2, figsize=(7.2, 3.04), dpi=200)
 
     ax = axes[0]
-    ax.plot(dens, b, "o", color=BLUE, ms=7)
-    ax.axhline(10.0, color="#B22222", ls="--", lw=1.0)
+    cap = 10.0
+    # keeping CBR on target means holding the offered load d*b roughly constant
+    c_load = sum(d * v for d, v in zip(dens, b) if v < cap - 1e-9) / sum(1 for v in b if v < cap - 1e-9)
+    gx = [4.0 + i * 0.1 for i in range(330)]
+    ax.plot(gx, [min(cap, c_load / x) for x in gx], ls="--", lw=1.1, color=GREY,
+            label="b = %.0f / d (constant load)" % c_load)
+    ax.plot(dens, b, "o", color=BLUE, ms=7, label="measured")
+    ax.axhline(cap, color="#B22222", ls="--", lw=1.0)
     ax.annotate("b capped at 10 Hz", (5, 10), xytext=(8, -14),
                 textcoords="offset points", fontsize=7.5, color="#B22222")
     for x, y in zip(dens, b):
@@ -166,6 +180,7 @@ def fig4_ladder():
     ax.set_ylabel("settled base rate b (Hz)", fontsize=9)
     ax.set_title("Working point vs load (target 0.18)", fontsize=9.5)
     ax.set_ylim(3.0, 10.8)
+    ax.legend(fontsize=7, loc="lower left")
     ax.tick_params(labelsize=8)
 
     ax = axes[1]
