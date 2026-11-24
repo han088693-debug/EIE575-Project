@@ -1,17 +1,19 @@
 # -*- coding: utf-8 -*-
-"""Generate the report/deck figures that derive from the 2026-11-24 results.
+"""Generate the report/deck figures.
 
-    python tools/make_figures.py              # writes docs/figures/fig5..fig7
-
-fig1, fig3 and fig4 predate this script (they were drawn from the calibration
-and S1 matrices in the working repo) and are kept untouched so the images cited
-by the earlier commits stay byte-identical. fig2 is regenerated here from the
-calibration table plus the load ladder, because the previous version was a
-two-point chord between anchors from two different densities.
+    python tools/make_figures.py            # everything
+    python tools/make_figures.py fig2       # one figure: fig1 fig2 fig3 fig4 sweep
 
 Every number below is copied from TABR_project/docs/REPORT_20261124.md
 (sections in the comments) or from the archived sweep summary; keep them in
 step with the report when the report changes.
+
+Presentation rules learned the hard way:
+  * never draw two different base rates on one curve (fig5a);
+  * never truncate a percentage axis to manufacture a difference (fig6);
+  * show the sample size when the figure is a mean, and show the seeds when
+    n is small enough to count (fig3, fig4, fig7);
+  * a single-run sweep is drawn as points, not as a smooth curve (fig1).
 """
 import io
 import csv
@@ -48,37 +50,181 @@ def read_sweep():
     return compact, ceiling
 
 
+def fig1_calibration():
+    """REPORT §5.1: four targets, one 60 s E0 run each (n = 1)."""
+    target = [0.14, 0.16, 0.18, 0.20]
+    b = [2.33, 2.60, 3.08, 3.57]
+    cbr = [0.119, 0.137, 0.158, 0.177]
+
+    fig, axes = plt.subplots(1, 2, figsize=(8.0, 3.2), dpi=200)
+
+    ax = axes[0]
+    ax.plot(target, b, "o", color=BLUE, ms=7)
+    for x, y in zip(target, b):
+        ax.annotate("%.2f" % y, (x, y), xytext=(0, 8), textcoords="offset points",
+                    ha="center", fontsize=7.5, color=BLUE)
+    ax.set_xlabel("cbr_target")
+    ax.set_ylabel("settled base rate b (Hz)")
+    ax.set_title("E0 working point vs target (d=33)", fontsize=10)
+    ax.set_ylim(2.25, 3.75)
+
+    ax = axes[1]
+    ax.plot([0.13, 0.21], [0.13, 0.21], ls="--", lw=1.0, color=GREY,
+            label="CBR = target")
+    ax.plot(target, cbr, "s", color="#B22222", ms=7, label="measured")
+    for x, y in zip(target, cbr):
+        ax.annotate("%.3f" % y, (x, y), xytext=(0, -14), textcoords="offset points",
+                    ha="center", fontsize=7.5, color="#B22222")
+    ax.set_xlabel("cbr_target")
+    ax.set_ylabel("measured CBR")
+    ax.set_title("Measured CBR vs target (deadband ±0.03)", fontsize=10)
+    ax.set_xlim(0.13, 0.21)
+    ax.set_ylim(0.11, 0.205)
+    ax.legend(fontsize=7.5, loc="upper left")
+
+    fig.text(0.5, 0.005, "one 60 s run per target (n = 1); no error bars are available",
+             ha="center", fontsize=7.5, color="#6B7C8F")
+    fig.tight_layout(rect=(0, 0.03, 1, 1))
+    path = OUT / "fig1_working_point.png"
+    fig.savefig(path, dpi=200)
+    plt.close(fig)
+    return path
+
+
+def fig3_s1():
+    """REPORT §5.3: three seeds per scheme; bars are means, whiskers are SD."""
+    schemes = ["G0", "G1", "G2", "G3"]
+    colors = [GREY, BLUE, GREEN, PURPLE]
+    onset = [161.8, 272.5, 100.4, 100.4]
+    onset_sd = [61.4, 103.6, 0.0, 0.0]
+    detect = [61.8, 172.5, 0.4, 0.4]
+    rate = [3.05, 2.80, 9.16, 9.16]
+
+    fig, axes = plt.subplots(1, 3, figsize=(10.4, 3.04), dpi=200)
+
+    ax = axes[0]
+    ax.bar(range(4), onset, width=0.6, color=colors, alpha=0.9)
+    ax.errorbar(range(4), onset, yerr=onset_sd, fmt="none", ecolor="black",
+                elinewidth=1.2, capsize=4)
+    for i, v in enumerate(onset):
+        ax.annotate("%.1f" % v, (i, v + 8), ha="center", fontsize=8)
+    ax.set_xticks(range(4), schemes)
+    ax.set_ylabel("D_info (ms)", fontsize=9)
+    ax.set_title("From real event start (spec)", fontsize=9.5)
+    ax.set_ylim(0, 400)
+    ax.tick_params(labelsize=8)
+
+    ax = axes[1]
+    ax.bar(range(4), detect, width=0.6, color=colors, alpha=0.9)
+    for i, v in enumerate(detect):
+        ax.annotate("%.1f" % v, (i, max(v, 0) + 6), ha="center", fontsize=8)
+    ax.set_xticks(range(4), schemes)
+    ax.set_ylabel("D_info (ms)", fontsize=9)
+    ax.set_title("From detection instant", fontsize=9.5)
+    ax.set_ylim(0, 300)
+    ax.annotate("G2/G3 = 0.4 ms\n(one frame)", (2.5, 120), ha="center",
+                fontsize=7.5, color="#6B7C8F")
+    ax.tick_params(labelsize=8)
+
+    ax = axes[2]
+    ax.bar(range(4), rate, width=0.6, color=colors, alpha=0.9)
+    for i, v in enumerate(rate):
+        ax.annotate("%.2f" % v, (i, v + 0.12), ha="center", fontsize=8)
+    ax.set_xticks(range(4), schemes)
+    ax.set_ylabel("braking vehicle rate (Hz)", fontsize=9)
+    ax.set_title("Rate during the event window", fontsize=9.5)
+    ax.set_ylim(0, 10.5)
+    ax.tick_params(labelsize=8)
+
+    fig.text(0.5, 0.005, "n = 3 seeds per scheme; whiskers are ±1 SD, zero for G2/G3",
+             ha="center", fontsize=7.5, color="#6B7C8F")
+    fig.tight_layout(rect=(0, 0.04, 1, 1))
+    path = OUT / "fig3_s1_comparison.png"
+    fig.savefig(path, dpi=200)
+    plt.close(fig)
+    return path
+
+
+def fig4_ladder():
+    """REPORT §5.2: three densities, two seeds each, target 0.18."""
+    dens = [5, 15, 33]
+    b = [10.00, 6.70, 3.36]
+    cbr = [0.083, 0.160, 0.158]
+
+    fig, axes = plt.subplots(1, 2, figsize=(7.2, 3.04), dpi=200)
+
+    ax = axes[0]
+    ax.plot(dens, b, "o", color=BLUE, ms=7)
+    ax.axhline(10.0, color="#B22222", ls="--", lw=1.0)
+    ax.annotate("b capped at 10 Hz", (5, 10), xytext=(8, -14),
+                textcoords="offset points", fontsize=7.5, color="#B22222")
+    for x, y in zip(dens, b):
+        off = (9, -3) if y >= 9.9 else (0, 9)
+        ax.annotate("%.2f" % y, (x, y), xytext=off, textcoords="offset points",
+                    ha="left" if off[0] else "center", fontsize=7.5, color=BLUE)
+    ax.set_xlabel("background density (veh/km/lane)", fontsize=9)
+    ax.set_ylabel("settled base rate b (Hz)", fontsize=9)
+    ax.set_title("Working point vs load (target 0.18)", fontsize=9.5)
+    ax.set_ylim(3.0, 10.8)
+    ax.tick_params(labelsize=8)
+
+    ax = axes[1]
+    ax.plot(dens, cbr, "s", color="#B22222", ms=7)
+    ax.axhline(0.18, color=GREY, ls="--", lw=1.0, label="cbr_target 0.18")
+    for x, y in zip(dens, cbr):
+        off = (0, 9) if y < 0.1 else (0, -15)
+        ax.annotate("%.3f" % y, (x, y), xytext=off, textcoords="offset points",
+                    ha="center", fontsize=7.5, color="#B22222")
+    ax.set_xlabel("background density (veh/km/lane)", fontsize=9)
+    ax.set_ylabel("measured CBR", fontsize=9)
+    ax.set_title("Measured CBR vs load", fontsize=9.5)
+    ax.set_ylim(0.07, 0.19)
+    ax.legend(fontsize=7.5, loc="lower right")
+    ax.tick_params(labelsize=8)
+
+    fig.text(0.5, 0.005, "n = 2 seeds per density; only the mean is archived, so no per-seed points",
+             ha="center", fontsize=7.5, color="#6B7C8F")
+    fig.tight_layout(rect=(0, 0.04, 1, 1))
+    path = OUT / "fig4_load_ladder.png"
+    fig.savefig(path, dpi=200)
+    plt.close(fig)
+    return path
+
+
 def fig5_beta(compact, ceiling):
     beta = [float(r["beta"]) for r in compact]
     r_brake = [float(r["lead_brake_r"]) for r in compact]
     d_info = [float(r["D_info_lower_ms"]) for r in compact]
     b0 = float(compact[0]["lead_b"])
+    b1 = float(ceiling[0]["lead_b"])
     r_max = 10.0
 
     fig, axes = plt.subplots(1, 3, figsize=(12.4, 4.0), dpi=200)
 
-    # (a) rate law in the braking window
+    # (a) rate law in the braking window — one curve per base rate
     ax = axes[0]
     xs = [0.35 + i * 0.05 for i in range(60)]
     ax.plot(xs, [b0 * (1 + x) for x in xs], color=GREY, lw=1.2,
             label=r"$r = b(1+\beta)$, b = %.2f Hz" % b0)
-    ax.plot(beta, r_brake, "o", color=TEAL, ms=6, label="v4 compact runs")
+    ax.plot(beta, r_brake, "o", color=TEAL, ms=6, label="v4 compact")
+    ax.plot(xs, [b1 * (1 + x) for x in xs], color=ORANGE, lw=1.1, ls="--",
+            label=r"b = %.2f Hz (all-scheme)" % b1)
     cb = [float(r["beta"]) for r in ceiling]
     cr = [float(r["lead_brake_r"]) for r in ceiling]
-    ax.plot(cb, cr, "s", mfc="none", mec=ORANGE, ms=8, mew=1.6,
-            label="all-scheme working point")
+    ax.plot(cb, cr, "s", mfc="none", mec=ORANGE, ms=8, mew=1.6, label="all-scheme runs")
     ax.axhline(r_max, color="#B22222", ls="--", lw=1.2)
     ax.annotate(r"$r_{max}$ = 10 Hz", (2.15, r_max), xytext=(2.15, 10.35),
                 fontsize=8, color="#B22222")
-    for x, y in zip(cb, cr):
-        if y >= r_max - 1e-6:
-            ax.annotate("clipped", (x, y), xytext=(x - 0.75, y - 0.9),
-                        fontsize=8, color=ORANGE)
+    y_would = b1 * (1 + cb[-1])
+    ax.annotate("", xy=(cb[-1], cr[-1]), xytext=(cb[-1], y_would),
+                arrowprops=dict(arrowstyle="->", color=ORANGE, lw=1.0, ls=":"))
+    ax.annotate("clipped at 10 Hz", (cb[-1], y_would), xytext=(-8, 2),
+                textcoords="offset points", ha="right", fontsize=7.5, color=ORANGE)
     ax.set_xlabel(r"$\beta$")
     ax.set_ylabel("braking-window rate r (Hz)")
-    ax.set_title("(a) rate law holds exactly")
-    ax.set_ylim(0, 12.2)
-    ax.legend(fontsize=7.5, loc="lower right")
+    ax.set_title("(a) rate law holds exactly", fontsize=10)
+    ax.set_ylim(0, 13.4)
+    ax.legend(fontsize=7, loc="lower right")
 
     # (b) delay vs beta
     ax = axes[1]
@@ -91,7 +237,7 @@ def fig5_beta(compact, ceiling):
                     ha="left" if i == 0 else "center", fontsize=8)
     ax.set_xlabel(r"$\beta$")
     ax.set_ylabel("D_info from true onset (ms)")
-    ax.set_title(r"(b) delay floors at $\beta \geq 1$")
+    ax.set_title(r"(b) delay floors at $\beta \geq 1$", fontsize=10)
     ax.set_ylim(90, 145)
 
     # (c) clipping fold line
@@ -110,7 +256,7 @@ def fig5_beta(compact, ceiling):
                 ha="center", color="#33475B")
     ax.set_xlabel("base rate b (Hz)")
     ax.set_ylabel("effective multiplier  min(1+β, r_max/b)")
-    ax.set_title(r"(c) anything past $b = r_{max}/(1+\beta)$ is clipped")
+    ax.set_title(r"(c) anything past $b = r_{max}/(1+\beta)$ is clipped", fontsize=10)
     ax.set_ylim(0.9, 4.6)
     ax.set_xlim(2.0, 10.0)
     ax.legend(fontsize=7.5, loc="upper right")
@@ -123,7 +269,7 @@ def fig5_beta(compact, ceiling):
 
 
 def fig6_v4():
-    # REPORT_20261124.md §5.5: per-seed D_info at event onset, v4, 6 runs
+    # REPORT §5.5: per-seed D_info at event onset, v4, 6 runs
     g0 = [434.2, 123.6, 176.5]
     g2 = [148.9, 100.6, 100.4]
     mean_g0, mean_g2 = 244.8, 116.6
@@ -132,8 +278,7 @@ def fig6_v4():
                              gridspec_kw={"width_ratios": [1.55, 1]})
 
     ax = axes[0]
-    for x, vals, color, label, mean in ((0, g0, GREY, "G0", mean_g0),
-                                        (1, g2, TEAL, "G2", mean_g2)):
+    for x, vals, color, mean in ((0, g0, GREY, mean_g0), (1, g2, TEAL, mean_g2)):
         ax.bar(x, mean, width=0.55, color=color, alpha=0.35)
         ax.plot([x] * len(vals), vals, "o", color=color, ms=7)
         ax.annotate("%.1f ms" % mean, (x, max(vals)), xytext=(0, 13),
@@ -141,7 +286,7 @@ def fig6_v4():
                     fontweight="bold", color=color)
     ax.set_xticks([0, 1], ["G0 (CBR only)", "G2 (braking weight)"])
     ax.set_ylabel("D_info from true onset (ms)")
-    ax.set_title("v4: per-seed runs, background fixed at 10 Hz")
+    ax.set_title("v4: per-seed runs (n = 3), background fixed at 10 Hz", fontsize=10)
     ax.set_ylim(0, 490)
     ax.text(0.03, 0.05, "CBR 0.423 · delivery 96% · −52%",
             transform=ax.transAxes, fontsize=8.5, va="bottom", color="#33475B")
@@ -152,9 +297,12 @@ def fig6_v4():
         ax.annotate("%.0f%%" % v, (x, v), xytext=(0, 4), textcoords="offset points",
                     ha="center", fontsize=9)
     ax.set_xticks([0, 1], ["v3.2", "v4"])
-    ax.set_ylim(90, 101)
+    ax.set_ylim(0, 108)
+    ax.set_yticks([0, 25, 50, 75, 100])
     ax.set_ylabel("delivery ratio (%)")
-    ax.set_title("cost of a real load")
+    ax.set_title("cost of a real load", fontsize=10)
+    ax.annotate("−3 percentage points", (0.5, 103), ha="center", fontsize=8,
+                color="#6B7C8F")
 
     fig.tight_layout()
     path = OUT / "fig6_v4_deployment.png"
@@ -164,30 +312,37 @@ def fig6_v4():
 
 
 def fig7_delay_split():
-    # REPORT_20261124.md §5.3: event-onset D_info and the detection-instant
-    # variant; the difference is the wait after the brake flag is set.
+    # REPORT §5.3: event-onset D_info and the detection-instant variant;
+    # the difference is the wait after the brake flag is set.
     schemes = ["G0", "G1", "G2", "G3"]
     wait = [61.8, 172.5, 0.4, 0.4]
     detect = [100.0, 100.0, 100.0, 100.0]
+    seeds = [[113.7, 140.7, 231.0], [155.1, 351.2, 311.2],
+             [100.4, 100.4, 100.4], [100.4, 100.4, 100.4]]
+
     fig, ax = plt.subplots(figsize=(8.6, 4.2), dpi=200)
     xs = range(len(schemes))
     ax.bar(xs, detect, width=0.55, color="#D8E0E8")
     ax.bar(xs, wait, width=0.55, bottom=detect, color=TEAL)
     for i, (d, w) in enumerate(zip(detect, wait)):
-        ax.annotate("%.1f ms" % (d + w), (i, d + w), xytext=(0, 4),
+        ax.annotate("%.1f ms" % (d + w), (i, d + w), xytext=(0, 16),
                     textcoords="offset points", ha="center", fontsize=9)
         if w > 10:
             ax.annotate("%.1f" % w, (i, d + w / 2), ha="center", va="center",
                         fontsize=8.5, color="white")
+        ax.plot([i + 0.13] * len(seeds[i]), seeds[i], "o", color="#1B2B3A", ms=5,
+                alpha=0.75, zorder=5)
     ax.set_xticks(list(xs), schemes)
     ax.set_ylabel("D_info from true onset (ms)")
     ax.set_title("Where the delay sits: same detection, different wait")
-    ax.set_ylim(0, 310)
+    ax.set_ylim(0, 380)
     handles = [
-        plt.Rectangle((0, 0), 1, 1, color="#D8E0E8", label="brake detection (~100 ms, all schemes)"),
+        plt.Rectangle((0, 0), 1, 1, color="#D8E0E8", label="brake detection (≈100 ms, all schemes)"),
         plt.Rectangle((0, 0), 1, 1, color=TEAL, label="wait for a send slot"),
     ]
-    ax.legend(handles=handles, fontsize=8, loc="upper right")
+    ax.legend(handles=handles, fontsize=8, loc="upper left")
+    ax.annotate("dots = the three seeds (bar = mean)", (3.0, 15), ha="right",
+                fontsize=7.5, color="#6B7C8F")
 
     fig.tight_layout()
     path = OUT / "fig7_delay_split.png"
@@ -252,11 +407,20 @@ def main():
     OUT.mkdir(parents=True, exist_ok=True)
     which = sys.argv[1] if len(sys.argv) > 1 else "all"
     paths = []
+    if which in ("all", "fig1"):
+        paths.append(fig1_calibration())
     if which in ("all", "fig2"):
         paths.append(fig2_cbr())
+    if which in ("all", "fig3"):
+        paths.append(fig3_s1())
+    if which in ("all", "fig4"):
+        paths.append(fig4_ladder())
     if which in ("all", "sweep"):
-        compact, ceiling = read_sweep()
-        paths += [fig5_beta(compact, ceiling), fig6_v4(), fig7_delay_split()]
+        if SWEEP.exists():
+            compact, ceiling = read_sweep()
+            paths += [fig5_beta(compact, ceiling), fig6_v4(), fig7_delay_split()]
+        else:
+            print("skip sweep figures: missing", SWEEP)
     for path in paths:
         print("wrote", path, path.stat().st_size, "bytes")
 
