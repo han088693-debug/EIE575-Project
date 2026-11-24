@@ -4,8 +4,14 @@ Usage:
     python tools/bsweep.py --root E:/Temp/bsweep --out E:/Temp/bsweep/summary.csv
 
 Reads every attempt-* directory under --root, then for each one reports
-config beta, validity, D_info (both onset endpoints), event-window rate /
+config beta and b_min, validity, D_info (both onset endpoints), rate /
 base rate / multiplier / CBR for the target pair, and transport totals.
+
+Two rate windows are reported and must not be mixed:
+  * event window [t0, t0+post_event_s] -- the whole post-event window;
+  * brake window -- only the ticks inside it with B=1, i.e. the state the
+    scheme is actually meant to accelerate.  "Braking-window rate" in the
+    results notes means this one; b*(1+beta) is only reachable here.
 """
 import argparse
 import csv
@@ -16,11 +22,13 @@ import statistics
 from pathlib import Path
 
 
-def read_control(path, vehicle, t0, t1):
+def read_control(path, vehicle, t0, t1, brake_only=False):
     rows = []
     with io.open(path, encoding="utf-8", errors="replace", newline="") as fh:
         for row in csv.DictReader(fh):
             if row.get("vehicle_id") != vehicle:
+                continue
+            if brake_only and row.get("B") != "1":
                 continue
             try:
                 t = float(row["tick_time"])
@@ -69,15 +77,18 @@ def main():
         event = events[0] if events else {}
         t0 = event.get("t0_s")
         post = float(cfg["timing"]["post_event_s"])
-        lead = follow = {}
+        lead = follow = lead_brake = {}
         if t0 is not None:
             ctl = attempt / "logs" / "control_log.csv"
             if ctl.exists():
                 lead = stats(read_control(ctl, "lead", t0, t0 + post))
                 follow = stats(read_control(ctl, "follow", t0, t0 + post))
+                lead_brake = stats(read_control(ctl, "lead", t0, t0 + post, brake_only=True))
         rec = {
             "dir": str(attempt.relative_to(root)),
             "beta": cfg["control"]["beta"],
+            "b_min_hz": round(cfg["control"]["b_min_hz"], 4),
+            "w_max": round(1 + cfg["control"]["beta"], 3),
             "scheme": metrics.get("scheme"),
             "seed": metrics.get("seed"),
             "validity": metrics.get("data_validity"),
@@ -99,6 +110,10 @@ def main():
             "lead_cbr": round(lead.get("Cbar", 0), 3) if lead else None,
             "follow_b": round(follow.get("b", 0), 3) if follow else None,
             "follow_r": round(follow.get("r", 0), 3) if follow else None,
+            "lead_brake_frac": round(lead_brake.get("n", 0) / lead.get("n", 1), 3) if lead else None,
+            "lead_brake_r": round(lead_brake.get("r", 0), 3) if lead_brake else None,
+            "lead_brake_W": round(lead_brake.get("W", 0), 3) if lead_brake else None,
+            "lead_brake_sat": round(lead_brake.get("r_sat_frac", 0), 3) if lead_brake else None,
             "all_tx": metrics.get("transport", {}).get("all_tx"),
             "all_rx": metrics.get("transport", {}).get("all_rx"),
         }
@@ -116,12 +131,14 @@ def main():
         writer.writerows(records)
     print("wrote", args.out, "rows:", len(records))
     print()
-    header = ("beta", "seed", "valid", "D_info_ms", "D_low_ms", "lead_b", "lead_W", "lead_r", "r_sat", "lead_cbr")
-    print("%6s %5s %-7s %9s %9s %7s %6s %7s %6s %8s" % header)
+    header = ("beta", "b_min", "seed", "valid", "D_info_ms", "D_low_ms", "lead_b",
+              "evt_W", "evt_r", "brk_r", "brk_sat", "brk_share")
+    print("%6s %6s %5s %-7s %9s %9s %7s %6s %7s %7s %8s %9s" % header)
     for r in records:
-        print("%6.2f %5s %-7s %9s %9s %7s %6s %7s %6s %8s" % (
-            r["beta"], r["seed"], r["validity"], r["D_info_ms"], r["D_info_lower_ms"],
-            r["lead_b"], r["lead_W"], r["lead_r"], r["lead_sat"], r["lead_cbr"]))
+        print("%6.2f %6.4f %5s %-7s %9s %9s %7s %6s %7s %7s %8s %9s" % (
+            r["beta"], r["b_min_hz"], r["seed"], r["validity"], r["D_info_ms"], r["D_info_lower_ms"],
+            r["lead_b"], r["lead_W"], r["lead_r"], r["lead_brake_r"], r["lead_brake_sat"],
+            r["lead_brake_frac"]))
 
 
 if __name__ == "__main__":
