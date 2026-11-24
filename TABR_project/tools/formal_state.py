@@ -383,7 +383,8 @@ def aggregate_controls(logs, clock, cfg, life, tracked, window, step, smoothing)
                 if real:
                     if fixed_rate > 0 and v not in target_ids:
                         # v4: background vehicles hold a fixed rate and bypass the feedback law.
-                        if abs(weight - 1) > 1e-12 or abs(rate - fixed_rate) > 1e-12 or abs(base - fixed_rate) > 1e-12:
+                        if (abs(weight - 1) > 1e-12 or abs(rate - fixed_rate) > 1e-12
+                                or abs(number(row["b"]) - fixed_rate) > 1e-12):
                             raise ValueError(f"background vehicle {v} violates the fixed-rate deployment at {t}")
                         previous_b[v] = fixed_rate
                     else:

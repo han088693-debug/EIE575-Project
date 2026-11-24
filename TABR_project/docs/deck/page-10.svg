@@ -2,20 +2,20 @@
   <rect width="960" height="540" fill="#F5F7FA"/>
   <text x="56" y="76" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="26" font-weight="700" fill="#10233F">结论与下一步</text>
 
-  <rect x="56" y="112" width="848" height="196" rx="8" fill="#FFFFFF" stroke="#D8E0E8"/>
-  <text x="80" y="142" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#0E7C86">三条结论</text>
-  <text x="80" y="172" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#33475B">1. G2 把制动信息时延从 161.8 ms 降到 100.4 ms（-38%），相对速度加权 G1（272.5 ms、多发 20%）同时占优，总发送量不变。</text>
-  <text x="80" y="198" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#33475B">2. G3 相对 G2 无额外收益，且这可证：S∈[0,1]，急刹时 B=1 ⇒ max(B,S)=1 ⇒ W_G3 = W_G2。保留更简单的 G2。</text>
-  <text x="80" y="224" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#33475B">3. 结构性限制本身就是产出：all_vehicles_same_scheme 下“可区分”与“有拥塞”互斥，解释了 grid_exhausted，</text>
-  <text x="104" y="246" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#33475B">并给出 v4 的解耦条件；在 v4 下首次测到 CBR 0.426 且 b 仍停在 2.38 Hz。</text>
-  <text x="80" y="278" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#6B7C8F">限定：只测 80 km/h、250 B、单信道、单一 MAC 优先级；S1 期限 0.8 s 相对实际时延过宽。</text>
+  <rect x="56" y="106" width="848" height="230" rx="8" fill="#FFFFFF" stroke="#D8E0E8"/>
+  <text x="80" y="136" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#0E7C86">四条结论</text>
+  <text x="80" y="166" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#33475B">1. G2 把制动信息时延从 161.8 ms 降到 100.4 ms（-38%），相对速度加权 G1（272.5 ms、多发 20%）同时占优，总发送量不变。</text>
+  <text x="80" y="192" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#33475B">2. G3 相对 G2 无额外收益，且这可证：S∈[0,1]，急刹时 B=1 ⇒ max(B,S)=1 ⇒ W_G3 = W_G2。保留更简单的 G2。</text>
+  <text x="80" y="218" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#33475B">3. v4 背景定速（CBR 0.423、投递率 96%）下收益保留：G0 244.8 ms → G2 116.6 ms（-52%），发送量不变。</text>
+  <text x="80" y="244" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#33475B">4. 结构性限制本身是产出：all_vehicles_same_scheme 下“可区分”与“有拥塞”互斥，解释了 grid_exhausted，</text>
+  <text x="104" y="266" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#33475B">并给出 v4 的解耦条件。</text>
+  <text x="80" y="300" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#6B7C8F">限定：只测 80 km/h、250 B、单信道、单一 MAC 优先级；S1 期限 0.8 s 相对实际时延过宽，收益体现为时延而非超时率。</text>
 
-  <rect x="56" y="326" width="848" height="150" rx="8" fill="#E7F1F2"/>
-  <text x="80" y="356" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#0E7C86">下一步</text>
-  <text x="80" y="384" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#33475B">1. 完成 v4 的 S1 对比（G0/G2 × 3 种子）与 G1 基线，报告拥塞下的时延与超时。</text>
-  <text x="80" y="408" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#33475B">2. 设计非急刹连续变速场景，让 S 项独立发挥作用（当前急刹场景下 G3≡G2 可证）。</text>
-  <text x="80" y="432" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#33475B">3. 收紧期限（如 0.2 s）或提高背景负载，以暴露超时率差异。</text>
-  <text x="80" y="460" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="11.5" fill="#6B7C8F">所有代码、配置、判定与图表已入库：github.com/han088693-debug/EIE575-Project</text>
+  <rect x="56" y="352" width="848" height="128" rx="8" fill="#E7F1F2"/>
+  <text x="80" y="382" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#0E7C86">下一步</text>
+  <text x="80" y="410" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#33475B">1. 设计非急刹连续变速场景，让 S 项独立发挥作用（当前急刹场景下 G3≡G2 可证）。</text>
+  <text x="80" y="434" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#33475B">2. 收紧期限（如 0.2 s）或继续提高背景负载，把超时率差异暴露出来。</text>
+  <text x="80" y="458" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#33475B">3. 多信道 / 多 MAC 优先级，检验结论在更真实车载环境下的稳健性。</text>
 
   <text x="56" y="512" font-family="Segoe UI, sans-serif" font-size="10.5" fill="#8A99A8">EIE575 Group 3 · TABR</text>
   <text x="904" y="512" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="10.5" fill="#8A99A8">10 / 10</text>
