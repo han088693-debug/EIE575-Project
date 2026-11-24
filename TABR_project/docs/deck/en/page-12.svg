@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+  <rect width="960" height="540" fill="#F5F7FA"/>
+  <text x="56" y="76" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="26" font-weight="700" fill="#10233F">Appendix: v4 deployment and where the delay sits</text>
+  <text x="56" y="106" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="13" fill="#6B7C8F">v4 = background at a fixed rate, only targets controlled; the one model with real congestion and distinct rates at once</text>
+  <image x="56" y="126" width="470" height="196" href="../assets/fig6_v4_deployment.png"/>
+  <image x="556" y="126" width="400" height="195" href="../assets/fig7_delay_split.png"/>
+  <text x="56" y="372" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="12.5" fill="#33475B">Left: v4 cuts D_info from 244.8 to 116.6 ms (−52%) at nearly the same send volume; delivery falls 99% → 96%, a real loss.</text>
+  <text x="56" y="404" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="12.5" fill="#33475B">Right: detection is ~100 ms in all four schemes; the difference is the wait after it — 61.8 ms (G0), 172.5 ms (G1), ~0 ms (G2/G3).</text>
+  <text x="56" y="452" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="12" fill="#6B7C8F">So the gain is attributable: it does not make detection faster, it stops the queue after detection.</text>
+  <text x="56" y="512" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="10.5" fill="#8A99A8">EIE575 Group 3 · TABR</text>
+  <text x="904" y="512" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="10.5" fill="#8A99A8">A2</text>
+</svg>

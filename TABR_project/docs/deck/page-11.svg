@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+  <rect width="960" height="540" fill="#F5F7FA"/>
+  <text x="56" y="76" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="26" font-weight="700" fill="#10233F">附录：β 灵敏度（补充扫描）</text>
+  <text x="56" y="106" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="13" fill="#6B7C8F">单种子、单事件；除 β 与 b_min 联动外，配置与 compact 主配置相同</text>
+  <image x="56" y="124" width="848" height="274" href="./assets/fig5_beta_sweep.png"/>
+  <text x="56" y="432" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#33475B">① 速率律精确成立：制动窗 r = b(1+β)，五档 3.47 / 4.62 / 5.78 / 6.93 / 9.24 Hz。</text>
+  <text x="56" y="458" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#33475B">② β ≥ 1 后时延触底（100.5 ms，其中检测约 100 ms）；③ 有效倍率 = min(1+β, 10/b)，b≈3.07 时上限 2.26。</text>
+  <text x="56" y="512" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="10.5" fill="#8A99A8">EIE575 Group 3 · TABR</text>
+  <text x="904" y="512" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="10.5" fill="#8A99A8">A1</text>
+</svg>

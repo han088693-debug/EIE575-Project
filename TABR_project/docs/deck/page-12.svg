@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+  <rect width="960" height="540" fill="#F5F7FA"/>
+  <text x="56" y="76" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="26" font-weight="700" fill="#10233F">附录：v4 部署与延迟分解</text>
+  <text x="56" y="106" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="13" fill="#6B7C8F">v4 = 背景定速、只控目标车；这就是“真实拥塞 + 可区分速率”同时成立的那版</text>
+  <image x="56" y="126" width="470" height="196" href="./assets/fig6_v4_deployment.png"/>
+  <image x="556" y="126" width="400" height="195" href="./assets/fig7_delay_split.png"/>
+  <text x="56" y="372" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#33475B">左：v4 把 D_info 从 244.8 降到 116.6 ms（−52%），发送量几乎不变；投递率 99% → 96%，背景定速压出了真实丢包。</text>
+  <text x="56" y="404" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12.5" fill="#33475B">右：四组检测延迟相同（约 100 ms），差别全在检测后的等待——G0 等 61.8 ms，G1 等 172.5 ms，G2/G3 几乎不等。</text>
+  <text x="56" y="452" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#6B7C8F">收益的来源因此可以指认：不是让检测变快，而是让“检测到之后”不再排队。</text>
+  <text x="56" y="512" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="10.5" fill="#8A99A8">EIE575 Group 3 · TABR</text>
+  <text x="904" y="512" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="10.5" fill="#8A99A8">A2</text>
+</svg>

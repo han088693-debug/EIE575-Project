@@ -1,6 +1,6 @@
 # English deck — EIE575 TABR
 
-English edition of the 10-page proposal deck. Same structure, same numbers, same figures as the
+English edition of the proposal deck (10 pages + 2 appendix pages). Same structure, same numbers, same figures as the
 Chinese deck one level up; only the copy is English.
 
 ## Files
@@ -19,7 +19,7 @@ Figures are shared with the Chinese deck and referenced as `../assets/fig*.png`;
    values where English runs longer (long lines drop to 11.5–12 pt).
 2. Create the `.univer` file, one Slide unit, then compile pages 1–10 with `univer_compile_svg`
    (`mode: replace`; page 1 first, later pages append).
-3. `univer_lint` returns no findings on all 10 pages; screenshots reviewed page by page.
+3. `univer_lint` returns no findings on all 12 pages; screenshots reviewed page by page.
 4. `univer_export` → `EIE575_TABR_deck_EN.pptx` in this folder (10 slides, 4 embedded figures).
 
 ## Keeping it in sync

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+  <rect width="960" height="540" fill="#F5F7FA"/>
+  <text x="56" y="76" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="26" font-weight="700" fill="#10233F">Appendix: β sensitivity (supplementary scan)</text>
+  <text x="56" y="106" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="13" fill="#6B7C8F">Single seed, single event; same compact config, only β and its coupled b_min change</text>
+  <image x="56" y="124" width="848" height="274" href="../assets/fig5_beta_sweep.png"/>
+  <text x="56" y="432" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="12.5" fill="#33475B">① The rate law holds exactly: braking-window r = b(1+β) — 3.47 / 4.62 / 5.78 / 6.93 / 9.24 Hz.</text>
+  <text x="56" y="458" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="12.5" fill="#33475B">② Delay floors at β ≥ 1 (100.5 ms = ~100 ms detection + 0.5 ms). ③ Usable gain = min(1+β, 10/b) → 2.26 at b ≈ 3.07 Hz.</text>
+  <text x="56" y="512" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="10.5" fill="#8A99A8">EIE575 Group 3 · TABR</text>
+  <text x="904" y="512" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="10.5" fill="#8A99A8">A1</text>
+</svg>
